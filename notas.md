@@ -2,6 +2,26 @@
 
 ## Documento
 
+### Problemática
+
+Alta configurabilidad / flexibilidad. Plugins?
+
+El equipo requiere de comandos y acciones por terminal, que requieren un nivel técnico avanzado. No existe una interfaz fácil para la interacción sencilla del monitoreo e identificacón de ellos.
+
+¿Qué está corriendo? ¿Está conectada la davis? ¿Cuándo fue el último registro?
+
+Que el programa arregle las cosas que el mismo pueda arreglar.
+
+No hay una interfaz para ello.
+
+Identificar-diagnosticar-resolver.
+
+Público objetivo - Frida.
+
+> ¿Los equipos se desconectan?
+>
+> ¿Los datos se pierden? - Consecuencia (Justificación)
+
 ### Justificación
 
 
@@ -27,7 +47,9 @@ Creando un sistema para monitorear las estaciones meteorológicas, así como un 
 
 ## Software features
 
-- Meter habilidades para helpdesk. Asignar issues, crear problemas, página de estatus, mostrar errores. Preferentemente como microservicio.
+- ~~Meter habilidades para helpdesk. Asignar issues, crear problemas, página de estatus, mostrar errores. Preferentemente como microservicio.~~
+
+- Sistema de alertas. Autodocumentación.
 
 - Para evitar almacenar credenciales, utilizar una password ssh *viva* la cual sea utilizada para agregar la llave SSH al "servidor" (raspberry).
 
@@ -37,10 +59,16 @@ Creando un sistema para monitorear las estaciones meteorológicas, así como un 
 
 - Se busca hacer una plataforma que permita alertas rápidas, pero que al mismo tiempo no sea estricta en los tiempos de conexión (fuzzy programming).
 
+- [X] ~~¿Gitlab CI/CD?~~
+
+- Trabajos futuros, la informacion que queda puede ser usada para entrenar un sistema que resuelva automáticamente los issues.
+
 
 ## Lenguaje y framework
 
-- ¿PHP o Python? Parece ser necesario utilizar Python, para tener un sitema unificado de lenguajes. Probablemente Django, aunque preferiría evitarlo.
+- ~~¿PHP o Python? Parece ser necesario utilizar Python, para tener un sitema unificado de lenguajes. Probablemente Django, aunque preferiría evitarlo.~~
+
+- **Django para backend**
 
 - MariaDB o MongoDB para el backend? Otras alternativas no son necesarias por as mismas razones que la selección del lenguaje.
 
@@ -54,3 +82,13 @@ Creando un sistema para monitorear las estaciones meteorológicas, así como un 
 ## Salsas
 
 https://ieeexplore.ieee.org/abstract/document/8543248
+
+http://anshulkaushik.com/use-of-open-source-technolo.pdf
+
+https://ieeexplore.ieee.org/abstract/document/8300092
+
+- Librería de python - Webhook.
+
+- Simple SMNP ¿? Cosechar información de Nagios.
+
+- Notificaciones con Microsoft.
