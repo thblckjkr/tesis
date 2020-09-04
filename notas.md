@@ -1,6 +1,45 @@
 # Notas personales
 
-## Documento
+## Planteamiento del problema
+
+En la administración de equipos de monitoreo climatológico,
+
+
+### Antecedentes
+
+### Definición del problema
+
+
+
+## Obejtivo
+
+Crear un sistema de monitoreo y control para estaciones meteorológicas que permita una respuesta rápida de los equipos no especializados al cuidado de las estaciones meteorológicas.
+
+## Objetivos específicos
+
+- Hacer un sistema extendible para comunicarse con las estaciones meteorológicas basado en el protocolo SNMP.
+
+- Crear un API para consultar estatus de las estaciones meteorológicas.
+
+- Crear una interfaz gráfica para monitorear el estatus de las estaciones.
+
+- Integrar las diferentes estaciones meteorológicas existentes al sistema.
+
+
+## Justificación
+
+
+## Hipótesis
+
+Creando un sistema para monitorear las estaciones meteorológicas, así como un control de reportes de incidentes es posible mejorar los tiempos de respuesta a los incidentes, así como minimizar la pérdida de datos por fallas de programa/sistema.
+
+## Preguntas de investigación
+
+- ¿Cuánto tiempo pasa de el momento en el que una estación falla, y que se den cuenta?
+
+
+---
+
 
 ### Problemática
 
