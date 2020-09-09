@@ -2,14 +2,26 @@
 
 ## Planteamiento del problema
 
-En la administración de equipos de monitoreo climatológico,
+Los equipos de monitoreo climatológico funcionan de la misma forma que la mayoría de los servidores en el mercado; Un equipo de cómputo que está corriendo un programa, llamado servicio, constantemente para escuchar las peticiones de sus clientes y permitir el acceso a los datos que ha posee.
+
+Pero de la misma forma, al ser un equipo de cómputo con funciones específicas, requiere de un alto grado de entendimiento de las funciones que realiza para poder modificarlas, así como un diagnóstico detallado y complicado para poder repararlas en caso de un fallo.
+
+[...] Párrafo sobre los problemas de escalabilidad de las estaciones [...]. *No es posible crear una red de estaciones y mantenerlas y monitorearlas sin esfuerzo*.
+
+[...] Párrafo puente pendiente [...]
+
+Por lo tanto, se propone la creación de un servicio e interfaz para facilitar la administración y mantenimiento general de los equipos meteorológicos, que *has an objective to aim to a broader audience* para así reducir a los tiempos de respuesta de los fallos de las estaciones meteorológicas.
 
 
 ### Antecedentes
 
+Debido a su alta [...],  las estaciones meteorológicas se han buscado crear más resilentes [...], pero eso no evita que sean completamente resistente a fallos.
+
+Actualmente las estaciones funcionan [...].
+
 ### Definición del problema
 
-
+Debido a la complejidad de los sistemas de monitoreo tecnológico, y al alto grado de conocimiento que es requerido para el monitorear las estaciones y darles mantenimiento. [...] el atender los fallos de las estaciones meteorológicas lleva tiempo y expertise, aún cuando estas fallas no sean críticas o complicadas
 
 ## Obejtivo
 
@@ -17,7 +29,9 @@ Crear un sistema de monitoreo y control para estaciones meteorológicas que perm
 
 ## Objetivos específicos
 
-- Hacer un sistema extendible para comunicarse con las estaciones meteorológicas basado en el protocolo SNMP.
+- Hacer un sistema modular y extendible para el monitoreo de las estaciones meteorológicas.
+
+- Crear un sistema central para coordinar los datos.
 
 - Crear un API para consultar estatus de las estaciones meteorológicas.
 
@@ -25,9 +39,14 @@ Crear un sistema de monitoreo y control para estaciones meteorológicas que perm
 
 - Integrar las diferentes estaciones meteorológicas existentes al sistema.
 
+- Integrar un sistema *existente* de notificaciones/alertas para fallos críticos de las estaciones.
 
 ## Justificación
 
+
+## Metodología
+
+Para el desarrollo de este programa, se utilizará la estrategia de desarrollo en cascada. En esta estrategia de desarrollo secuencial de software, se realiza un análisis exhaustivo de las características requeridas en el sistema a desarrollar antes de llevar a cabo su desarrollo. Esta estrategia será benéfica para el desarrollo del proyecto debido a que se posee un requerimiento inicial claro.\cite{Balaji2012WATEERFALLV}
 
 ## Hipótesis
 
@@ -88,7 +107,7 @@ Creando un sistema para monitorear las estaciones meteorológicas, así como un 
 
 - ~~Meter habilidades para helpdesk. Asignar issues, crear problemas, página de estatus, mostrar errores. Preferentemente como microservicio.~~
 
-- Sistema de alertas. Autodocumentación.
+- Sistema de alertas. Autodocumentación, abrir la posibilidad de hacer todo 100% automático. Ofrecer un sistema en un futuro que sea plug & play para las estaciones. Las mantenga activas y sepa diagnosticar y resolver problemas. Ayudando así al mantenimiento virtualmente automático de estaciones.
 
 - Para evitar almacenar credenciales, utilizar una password ssh *viva* la cual sea utilizada para agregar la llave SSH al "servidor" (raspberry).
 
@@ -102,12 +121,18 @@ Creando un sistema para monitorear las estaciones meteorológicas, así como un 
 
 - Trabajos futuros, la informacion que queda puede ser usada para entrenar un sistema que resuelva automáticamente los issues.
 
+- El sistema debe ser completamente extendible, se debe poder extraer como tal el código y pegarlo en otro proyecto python sin mayores modificaciones. *Ecosistema de submódulos de git (?)*
+
+- Salud y espacio de los USB donde los datos meteorolóficos se almacenan.
+
+- Módulo de conexión extendible (SSH, SMNP, TELNET),  
+
 
 ## Lenguaje y framework
 
 - ~~¿PHP o Python? Parece ser necesario utilizar Python, para tener un sitema unificado de lenguajes. Probablemente Django, aunque preferiría evitarlo.~~
 
-- **Django para backend**
+- **Django para backend**, pelear por FastAPI
 
 - MariaDB o MongoDB para el backend? Otras alternativas no son necesarias por as mismas razones que la selección del lenguaje.
 
