@@ -15,9 +15,15 @@ Por lo tanto, se propone la creación de un servicio e interfaz para facilitar l
 
 ### Antecedentes
 
-Debido a su alta [...],  las estaciones meteorológicas se han buscado crear más resilentes [...], pero eso no evita que sean completamente resistente a fallos.
+> Importancia de los datos meteoroleogicos
+
+> Redes meteorológicas de alta densidad
+
+Debido a la *[disponibilidad e integridad]* de los datos requerida en las estaciones meteorológicas, han buscado crear redes resilentes [...], pero eso no evita que sean completamente resistente a fallos.
 
 Actualmente las estaciones funcionan [...].
+
+> Nagios
 
 ### Definición del problema
 
@@ -25,7 +31,7 @@ Debido a la complejidad de los sistemas de monitoreo tecnológico, y al alto gra
 
 ## Obejtivo
 
-Crear un sistema de monitoreo y control para estaciones meteorológicas que permita una respuesta rápida de los equipos no especializados al cuidado de las estaciones meteorológicas.
+Crear un sistema de monitoreo y control para estaciones meteorológicas que permita una respuesta rápida del personal no especializado al cuidado de las estaciones meteorológicas.
 
 ## Objetivos específicos
 
@@ -43,6 +49,12 @@ Crear un sistema de monitoreo y control para estaciones meteorológicas que perm
 
 ## Justificación
 
+> ¿Que se gana logrando el objetivo?
+
+- *Pérdida de datos y tiempo*
+- *¿Ingenieros 24/7?*
+- *Escalabilidad*
+- *Crecimiento y flexibilidad*
 
 ## Metodología
 
@@ -50,7 +62,7 @@ Para el desarrollo de este programa, se utilizará la estrategia de desarrollo e
 
 ## Hipótesis
 
-Creando un sistema para monitorear las estaciones meteorológicas, así como un control de reportes de incidentes es posible mejorar los tiempos de respuesta a los incidentes, así como minimizar la pérdida de datos por fallas de programa/sistema.
+Creando un sistema para monitorear las estaciones meteorológicas, así como un control de reportes de incidentes es posible mejorar los tiempos de respuesta a los incidentes, ~~así como minimizar la pérdida de datos por fallas de programa/sistema~~.
 
 ## Preguntas de investigación
 
@@ -133,6 +145,10 @@ Creando un sistema para monitorear las estaciones meteorológicas, así como un 
 - ~~¿PHP o Python? Parece ser necesario utilizar Python, para tener un sitema unificado de lenguajes. Probablemente Django, aunque preferiría evitarlo.~~
 
 - **Django para backend**, pelear por FastAPI
+
+- *Frontend* VueJS. Es lo suficientemente sencillo y lindo.
+
+- Autenticación
 
 - MariaDB o MongoDB para el backend? Otras alternativas no son necesarias por as mismas razones que la selección del lenguaje.
 
