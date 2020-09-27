@@ -112,3 +112,12 @@ https://ieeexplore.ieee.org/abstract/document/8300092
 - Simple SMNP ¿? Cosechar información de Nagios.
 
 - Notificaciones con Microsoft.
+
+
+[chapman2015birmingham]
+
+> However, there is a general paucity of measurements in urban areas because of the cost of standard monitoring equipment and its upkeep, as well as the need for national weather and climate monitoring stations to be located outside urban areas 
+
+- [WMO_guide_2014]
+
+# Si tengo una cita que viene de otra cita, de donde cito la cita?
