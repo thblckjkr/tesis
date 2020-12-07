@@ -114,10 +114,24 @@ https://ieeexplore.ieee.org/abstract/document/8300092
 - Notificaciones con Microsoft.
 
 
-[chapman2015birmingham]
+**[chapman2015birmingham]**
+
+- Usan campbell scientific
 
 > However, there is a general paucity of measurements in urban areas because of the cost of standard monitoring equipment and its upkeep, as well as the need for national weather and climate monitoring stations to be located outside urban areas 
 
 - [WMO_guide_2014]
 
+But climate data are also integral in making the city even smarter by controlling en-ergy demand and reducing disruption on transport networks.
+
+> Aginova Sentinel Micro ~150 USD are used to monitor ONLY  air data
+
+> Low/No cost loggers are important for the development of better interfaces?
+
 # Si tengo una cita que viene de otra cita, de donde cito la cita?
+
+> Uno de los retos con los que se ha encontrado al optar por el desarrollo de estaciones meteorologicas *platafform-agnostic* es el mantenimiento de las mismas.
+
+> Puedo juntarme con el sujeto que esta haciendo los analisis meteorologicos para ver un sistema de administracion de la metadata/las configuraciones de las estaciones?
+
+El siguiente paso logico para el desarollo de un sistema de monitoreo de climatologia economico sustentable.
