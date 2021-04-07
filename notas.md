@@ -135,3 +135,6 @@ But climate data are also integral in making the city even smarter by controllin
 > Puedo juntarme con el sujeto que esta haciendo los analisis meteorologicos para ver un sistema de administracion de la metadata/las configuraciones de las estaciones?
 
 El siguiente paso logico para el desarollo de un sistema de monitoreo de climatologia economico sustentable.
+
+
+https://docs.masoniteproject.com/
