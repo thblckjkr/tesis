@@ -1,12 +1,14 @@
-\section{Marco Teórico}
+\section{Marco referencial}
 
-\subsection{Marco conceptual}
+\subsection{Marco teórico}
 
 \subsubsection{Estación meteorológica}
 
 Automatic weather stations
 
 \subsubsection{Redes meteorológicas}
+
+\subsubsection{Modelo OSI}
 
 \subsubsection{Red de comunicación}
 
@@ -23,18 +25,24 @@ Esta es una descripción de las herramientas de tecnología que se utilizarán p
 
 \subsubsection{Docker}
 
-Docker es un sistema para la creación y distribución de imágenes de software, principalmente orientado a servidores, que permite el crear un ambiente replicable agnóstico al sistema operativo del host. Es un estándar en la industria de desarrollo de software para crear sistemas complejos manteniendo una relativa simpleza al desplegar nuevas instancias \cite{Rad2017DockerAnalysis}.
+Docker es un sistema para la creación y distribución de imágenes de software, principalmente orientado a servidores, que permite el crear un ambiente replicable agnóstico al sistema operativo del host. Es un estándar en la industria de desarrollo de software para crear sistemas complejos manteniendo una relativa simpleza al desplegar nuevas instancias\cite{rad2017dockerAnalysis}.
 
-Además de ofrecer una mayor flexibilidad y escalabilidad para tanto para realizar pruebas en máquinas de desarrollo como para distribuir y empaquetar nuevas instancias en ambientes de producción, se ha demostrado que el costo en eficiencia al sistema que lo ejecuta es mínimo comparado con otros métodos para la administración de sistemas complejos tales como las máquinas virtuales y KVM\cite{felter2015comparsionPerformance, rad2017dockerAnalysis}.
+Además de ofrecer una mayor flexibilidad y escalabilidad para tanto para realizar pruebas en máquinas de desarrollo como para distribuir y empaquetar nuevas instancias en ambientes de producción, se ha demostrado que el costo en eficiencia al sistema que lo ejecuta es mínimo comparado con otros métodos para la administración de sistemas complejos tales como las máquinas virtuales y el empaquetado en KVM\cite{rad2017dockerAnalysis, felter2015comparsionPerformance}.
 
-Docker es un software y una plataforma para crear "imágenes" de software, que ayuda a tener una distribución y actualizaciones consistentes, así como el
+\subsubsection{Masonite ORM}
 
-\subsubsection{OpenAPI}
+MasoniteORM es una solución creada para python que permite la manipulación de sistemas relacionales de bases de datos creando una interfaz de código. Abstrae la complejidad de la manipulación de base de datos para convertirla en un modelo de clases con una interfaz simple para la edición del código. Tiene amplio soporte para transacciones, es compatible con MariaDB y está diseñado para ser incluido en proyectos complejos sin necesidad de incluir un framework completo\cite{masonite_2021}.
 
 \subsubsection{FastAPI}
 
-Modelo OSI
+FastAPI es un framework para desarrollo de APIs REST para Python centrado en el desarrollo rápido con ayuda de las anotaciones estándar de Python. Además de ser uno de los frameworks de desarrollo más rápidos en su ejecución, permite el crear directamente documentación compatible con el estándar OpenAPI sin necesidad de librerías externas\cite{fastapi_ramirez_2020}. Todo esto lo convierte en un framework ideal para extender proyectos existentes en Python y con su permisiva licencia permite % TODO terminar esta oración
 
+
+\subsubsection{MariaDB}
+
+MariaDB es un motor de base de datos relacional creado por el equipo original que desarrolló MySQL, es un motor que tiene como objetivo mantenerse completamente abierto y tiene una licencia de uso permisiva para su uso en ambientes comerciales y no comerciales\cite{mariadb_foundation_2019}. Tiene un rendimiento similar a MySQL en operaciones transaccionales, por lo cual es una excelente alternativa cuando se requiere un modelo de licencias permisivo\cite{mariadb_comparison}.
+
+% TODO \subsubsection{React} Sección de tecnología para front, probablemente React
 
 % SNM (Simple management network)
 % OpenSource
