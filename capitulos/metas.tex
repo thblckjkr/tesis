@@ -1,5 +1,22 @@
 \section{Propuesta de solución}
 
-Se propone
+Se propone crear un proyecto que permita monitorear el estatus de los servicios de las estaciones meteorológicas, y por **consiguiente** de la infraestructura en la que dependen, así como ofrecer un control limitado para la solución de problemas de forma remota.
+
+El proyecto consistirá de tres partes independientes:
+
+\begin{itemize}
+   \item Un módulo para el monitoreo de el estatus de las estaciones, que permita el cargar la información de las estaciones de una base de datos, para luego cargar los controladores específicos de cada estación basado en la infrormación existente de las mismas para después guardar el estado en el que se encuentran en una base de datos.
+
+   \item Un API REST que tendrá el objetivo de proveer un acceso sencillo a la información de los sistemas de monitoreo, así como el de proveer una interfaz de control para las estaciones que permita la ejecución remota de comandos preestablecidos, desde cualquier punto con la autorización adecuada que haga una petición a la ruta correspondiente.
+
+   \item Una interfaz gráfica, que permita el acceso a la información correspondiente de los sistemas de monitoreo, así como acceso a los reportes que se generen y permita capturar informes de solución de problemas de las estaciones para su posterior análisis.
+
+\end{itemize}
 
 \section{Alcances y limitaciones}
+
+Si bien se pretende que el proyecto tenga la flexibilidad suficiente para adaptarse a nuevos casos de uso sin necesidad de reescribir grandes partes del mismo, también se consideran varios límites:
+
+La integración de estaciones meteorológicas se limitará a cubrir casos conocidos y recurrentes de estaciones meteorológicas existentes, como lo son las estaciones Davis Vantage Pro® conectadas a un RaspberryPi como DataLogger, así como las estaciones Campbell® accesadas directamente por su dirección IP y a las que se accesa por medio de una RaspberryPi que funciona como DataLogger. El proyecto estará limitado a conectarse a solamente una de cada uno de los tipos de estaciones meteorológicas existentes.
+
+Así mismo, la interfaz gráfica, y el diseño y la implementación del API se limitarán a cubrir los casos comunes de fallo de las estaciones anteriormente mencionadas. Respecto a los servicios que el sistema monitoreará, se pretende que sólo se monitoreen los escenciales para el monitoreo y funcionamiento correcto del sistema de recolección de datos existentes, tales como el servicio WeeWX, el proveedor de VPN y el servicio de backups por estación si es que existe. De la misma forma, el proyecto se limitará a adaptarse a la infraestructura de red existente y a integrar estaciones que se encuentren recolectando datos.

@@ -6,26 +6,9 @@
 
 Automatic weather stations
 
+%! Agregar un tema general
+
 \subsubsection{Redes meteorológicas}
-
-\subsubsection{API REST}
-
-Los sistemas informáticos que se componen de más de un componente, utilizan diversos métodos de comunicación entre ellos. Desde el accesar directamente a localizaciones de memoria física o virtual en un dispositivo para compartir información hasta crear librerías compartidas entre sistemas para accesar a la información en un depósito externo (conocidas como APIs), cada forma de acceso a los datos tiene su propio nivel de abstracción, oportunidades, y desventajas, las cuales deben ser evaluadas antes de elegir una tecnología adecuada para responder a las necesidades de cada proyecto.
-
-Un API REST es un sistema de acceso a la información de sistemas externos por medio de protocolos \textit{Web}, tales como HTTP/HTTPS, los cuáles permiten la consulta de datos en cualquier lenguaje que permita realizar conexiones y consultas a sitios web \cite{REST_API_design}. Entre las principales características de los API REST se encuentra **la falta de la necesidad** de proveer un estado para acceder a la información, esto implica que no es necesario mas que conocer la ruta en la que se encuentran los datos requeridos para acceder a ellos. Las ventajas que ofrece es la amplia disponibilidad de acceso a los datos y la fácil integración con sistemas existentes de información\cite{OpenAPI_example}.
-
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=.70\linewidth]{images/diagrams/REST.png}
-	\caption{Diagrama del protocolo REST.}
-	\label{fig:coms_nodos_raspberry}
-\end{figure}
-
-\subsubsection{OpenAPI}
-
-Debido a la naturaleza libre de el desarrollo web, y la poca estandarización de la comunicación entre los clientes web con los servidores, se creó la iniciativa OpenAPI a partir de un estándar existente proveído por la compañía Smartbear, Swagger. Este estándar para la comunicación con sitios por medio de APIs REST rápidamente fué ganando popularidad gracias a la fundación Linux hasta convertirse en un estándar utilizado ampliamente por diversas organizaciones y empresas\cite{OpenAPI_foundation}.
-
-El estándar OpenAPI es un esquema de definición de estructura de datos en JSON. En este esquema se definen las rutas a las cuáles se puede acceder, los parámetros que aceptan y sus respectivos tipos de datos, así como la información que responde y los tipos de datos de los mismos. Y debido a la naturaleza abierta del esquema, este puede ser generado e integrado nativamente con el uso de diversas tecnologías de desarrollo. Permitiendo, por ejemplo, el generar las clases e interfaces correspondientes para el uso por medio de clases de los datos para lenguajes de programación fuertemente tipados\cite{openapi_generator}
 
 \subsubsection{Redes de comunicación}
 
@@ -38,9 +21,28 @@ Red Local, redes NAT y capas de NAT en el pais. Mencionar direcciones públicas
 VPN (Incluir segmento sobre a seguridad involucrada en la VPN), y sobre la facilidad de conexion con SSH
 
 
+% \subsubsection{API REST}
+
+Los sistemas informáticos que se componen de más de un componente, utilizan diversos métodos de comunicación entre ellos. Desde el accesar directamente a localizaciones de memoria física o virtual en un dispositivo para compartir información hasta crear librerías compartidas entre sistemas para accesar a la información en un depósito externo (conocidas como APIs), cada forma de acceso a los datos tiene su propio nivel de abstracción, oportunidades, y desventajas, las cuales deben ser evaluadas antes de elegir una tecnología adecuada para responder a las necesidades de cada proyecto.
+
+Un API REST es un estándar de acceso a la información de sistemas externos por medio de protocolos \textit{Web}, tales como HTTP/HTTPS, los cuáles permiten la consulta de datos en cualquier lenguaje que permita realizar conexiones y consultas a sitios web \cite{REST_API_design}. Entre las principales características de los API REST se encuentra **la falta de la necesidad** de proveer un estado para acceder a la información, esto implica que no es necesario mas que conocer la ruta en la que se encuentran los datos requeridos para acceder a ellos. Las ventajas que ofrece es la amplia disponibilidad de acceso a los datos y la fácil integración con sistemas existentes de información\cite{OpenAPI_example}.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=.70\linewidth]{images/diagrams/REST.png}
+	\caption{Diagrama del protocolo REST.}
+	\label{fig:coms_nodos_raspberry}
+\end{figure}
+
+% \subsubsection{OpenAPI}
+
+Debido a la naturaleza libre de el desarrollo web, y la poca estandarización de la comunicación entre los clientes web con los servidores, se creó la iniciativa OpenAPI a partir de un estándar existente proveído por la compañía Smartbear, Swagger. Este estándar para la comunicación con sitios por medio de APIs REST rápidamente fué ganando popularidad gracias a la fundación Linux hasta convertirse en un estándar utilizado ampliamente por diversas organizaciones y empresas\cite{OpenAPI_foundation}.
+
+El estándar OpenAPI es un esquema de definición de estructura de datos en JSON. En este esquema se definen las rutas a las cuáles se puede acceder, los parámetros que aceptan y sus respectivos tipos de datos, así como la información que responde y los tipos de datos de los mismos. Y debido a la naturaleza abierta del esquema, este puede ser generado e integrado nativamente con el uso de diversas tecnologías de desarrollo. Permitiendo, por ejemplo, el generar las clases e interfaces correspondientes para el uso por medio de clases de los datos para lenguajes de programación fuertemente tipados\cite{openapi_generator}
+
 \subsection{Marco tecnológico}
 
-Esta es una descripción de las herramientas de tecnología que se utilizarán para el desarrollo del proyecto:
+A continuación se presenta una descripción de las herramientas de tecnología que se utilizarán para el desarrollo del proyecto:
 
 \subsubsection{Docker}
 
