@@ -2,30 +2,30 @@
 
 \subsection{Marco teórico}
 
-\subsubsection{Estación meteorológica}
+% \subsubsection{Estación meteorológica}
 
-Automatic weather stations
+% Automatic weather stations
 
-%! Agregar un tema general
+% %! Agregar un tema general
 
-\subsubsection{Redes meteorológicas}
+% \subsubsection{Redes meteorológicas}
 
-\subsubsection{Redes de comunicación}
+% \subsubsection{Redes de comunicación}
 
-Red Local, redes NAT y capas de NAT en el pais. Mencionar direcciones públicas
+% Red Local, redes NAT y capas de NAT en el pais. Mencionar direcciones públicas
 
-\subsubsection{Modelo OSI}
+% \subsubsection{Modelo OSI}
 
-\subsubsection{VPN}
+% \subsubsection{VPN}
 
-VPN (Incluir segmento sobre a seguridad involucrada en la VPN), y sobre la facilidad de conexion con SSH
+% VPN (Incluir segmento sobre a seguridad involucrada en la VPN), y sobre la facilidad de conexion con SSH
 
 
 % \subsubsection{API REST}
 
 Los sistemas informáticos que se componen de más de un componente, utilizan diversos métodos de comunicación entre ellos. Desde el accesar directamente a localizaciones de memoria física o virtual en un dispositivo para compartir información hasta crear librerías compartidas entre sistemas para accesar a la información en un depósito externo (conocidas como APIs), cada forma de acceso a los datos tiene su propio nivel de abstracción, oportunidades, y desventajas, las cuales deben ser evaluadas antes de elegir una tecnología adecuada para responder a las necesidades de cada proyecto.
 
-Un API REST es un estándar de acceso a la información de sistemas externos por medio de protocolos \textit{Web}, tales como HTTP/HTTPS, los cuáles permiten la consulta de datos en cualquier lenguaje que permita realizar conexiones y consultas a sitios web \cite{REST_API_design}. Entre las principales características de los API REST se encuentra **la falta de la necesidad** de proveer un estado para acceder a la información, esto implica que no es necesario mas que conocer la ruta en la que se encuentran los datos requeridos para acceder a ellos. Las ventajas que ofrece es la amplia disponibilidad de acceso a los datos y la fácil integración con sistemas existentes de información \cite{OpenAPI_example}.
+Un API REST es un estándar de acceso a la información de sistemas externos por medio de protocolos \textit{Web}, tales como HTTP/HTTPS, los cuáles permiten la consulta de datos en cualquier lenguaje que permita realizar conexiones y consultas a sitios web \cite{REST_API_design}. Entre las principales características de los API REST se encuentra que no es necesario proveer un estado previo para acceder a la información, esto implica que no es necesario mas que conocer la ruta en la que se encuentran los datos requeridos para acceder a ellos. Las ventajas que ofrece es la amplia disponibilidad de acceso a los datos y la fácil integración con sistemas existentes de manejo y procesamiento de información \cite{OpenAPI_example}.
 
 \begin{figure}[!ht]
 	\centering
@@ -48,7 +48,7 @@ A continuación se presenta una descripción de las herramientas de tecnología 
 
 Docker es un sistema para la creación y distribución de imágenes de software, principalmente orientado a servidores, que permite el crear un ambiente replicable agnóstico al sistema operativo del host. Es un estándar en la industria de desarrollo de software para crear sistemas complejos manteniendo una relativa simpleza al desplegar nuevas instancias \cite{rad2017dockerAnalysis}.
 
-Docker utiliza un sólo Kernelde linux para la creación de los contenedores y cada uno de los contenedores puede contener hasta \textit{n} procesos, lo que lo ayuda a reducir el tamaño de sistemas complejos\ref{fig:docker_diagrama}. Además de ofrecer una mayor flexibilidad y escalabilidad para tanto para realizar pruebas en máquinas de desarrollo como para distribuir y empaquetar nuevas instancias en ambientes de producción, se ha demostrado que el costo en eficiencia al sistema que lo ejecuta es mínimo comparado con otros métodos para la administración de sistemas complejos tales como las máquinas virtuales y el empaquetado en KVM \cite{rad2017dockerAnalysis, felter2015comparsionPerformance}.
+Docker utiliza un sólo Kérnel de linux para la creación de los contenedores y cada uno de los contenedores puede contener hasta \textit{n} procesos, lo que lo ayuda a reducir el tamaño de sistemas complejos\ref{fig:docker_diagrama}. Además de ofrecer una mayor flexibilidad y escalabilidad para tanto para realizar pruebas en máquinas de desarrollo como para distribuir y empaquetar nuevas instancias en ambientes de producción, se ha demostrado que el costo en eficiencia al sistema que lo ejecuta es mínimo comparado con otros métodos para la administración de sistemas complejos tales como las máquinas virtuales y el empaquetado en KVM \cite{rad2017dockerAnalysis, felter2015comparsionPerformance}.
 
 
 \begin{figure}[!ht]
