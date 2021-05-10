@@ -5,3 +5,11 @@ Para el desarrollo de este programa, se utilizará la estrategia de desarrollo �
 Debido a que la experiencia de usuario es uno de los factores que pueden separar al sistema en desarrollo de los sistemas actuales de monitoreo para equipos de cómputo, el esquema de entregas, desarrollo y planeación estarán centrado en el mismo \cite{hussain_agile_usercentered}. El ciclo de entregas será con un sprint de máximo dos semanas, para una revisión de las metas, planeación y objetivos a alto nivel con el usuario y redifinir los requisitos y como sea necesario. La documentación para el usuario final, así como la documentación del API y la información técnica del sistema será un producto que será entregado al finalizar el mismo, apoyándose de la información generada en los sprints.
 
 En el respecto del lenguaje de programación, tomando en consideración que la red de monitoreo actual utiliza WeeWX para su integración con estaciones meteorológicas \cite{red_climatologica_uacj}, así como otros componentes del sistema de monitoreo existente, se pretende utilizar Python como lenguaje principal para el desarrollo del núcleo del sistema, sus módulos, y el API de consulta. Para el desarrollo de la interfaz gráfica del sitio web, se elegirá un framework ligero con Javscript. Todo esto se empaquetará en una imagen de Docker para permitir la replicación de la instancia con el mínimo esfuerzo posible.
+
+
+\subsection{Consideraciones de seguridad}
+
+Si bien los datos que se recolectan en el sistema serán puestos a disposición al público por la forma en la que el LCCA funciona actualmente, es decir, un servicio publico financiado para que los alumnos de la universidad tengan acceso a datos propios para realizar investigaciones locales, el acceso al control de las estaciones meteorológicas puede significar un vector de ataque a los sistemas de la universidad que dependen de ellos.
+
+Tanto el sistema de backups, como otros.
+
