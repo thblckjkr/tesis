@@ -1,0 +1,100 @@
+
+\documentclass[final, fmstyle, lic]{tesis}
+
+% paquetes usados
+%\usepackage[chapter, spanish]{theorems}
+\newtheorem{theorem}{Teorema}[chapter]
+\newtheorem{lemma}{Lema}[chapter]
+\newtheorem{proposition}{Proposición}[chapter]
+\newtheorem{corollary}{Corolario}[chapter]
+\newtheorem{definition}{Definición}[chapter]
+\newtheorem{example}{Ejemplo}[chapter]
+\newtheorem{observation}{Observación}[chapter]
+
+\usepackage{symbols}
+\usepackage{graphicx} %usar imágenes externas
+\usepackage{url}
+\usepackage{blindtext}
+\usepackage[table,xcdraw]{xcolor}
+
+\usepackage[utf8]{inputenc}  % descomentar para teclado en español de Unix, Mac y posiblemente Windows
+\usepackage[T1]{fontenc} % this helps hyphenate Spanish vocabulary with acute accent
+%\usepackage[latin1]{inputenc}  % descomentar para teclado en espa√±ol de Unix y posiblemente tambi√©n de Windows
+%\usepackage[applemac]{inputenc}  % descomentar para teclado en espa√±ol de Mac
+\usepackage[spanish]{babel}
+\decimalpoint
+
+\setlength{\parskip}{2mm}	%Espaciado entre párrafos
+
+\usepackage{hyperref}
+%\usepackage{urm}
+% datos de la tesis
+\title{[Sistema de monitoreo para estaciones meteorológicas]}
+\author{[142912]}{[Teo González Calzada]}
+\authorb{}{}
+\director{[Mtro.]}{[José Fernando Estrada Saldaña]}
+\directorb{}{}
+\directorbp{«Profesor-Investigador IIT»}  % Dejar en campo en blanco si no hay segundo asesor
+\sinodala{Dr.}{Nombre del Sinodal A}
+\sinodalb{Dr.}{Nombre del Sinodal B}
+\sinodalc{Dr.}{Nombre del Sinodal C}
+\titular{Dr.}{Nombre del profesor de la materia} % Titular de Seminario de Titulación II
+
+% comenta para automático:
+\termyear{\today}
+
+\begin{document}
+\pagenumbering{roman}
+
+\maketitle     % esto hace las portadas
+\approvalpage  % esto hace la pagina de aprobaci√õn
+\approvalprint  % esto hace la pagina de aprobaci√õn
+%\approvalprint % esto hace la pagina de aprobaci√õn de impresión. Comentar si sólo un alumno
+\originalpage
+
+\include{capitulos/Agradecimientos}
+\setcounter{page}{6}
+\include{capitulos/Dedicatoria}
+
+% los siguientes comandos producen √åndices.
+% tablas y figuras en el documento de la tesis
+\tableofcontents
+\listoffigures
+\listoftables
+
+\include{capitulos/Resumen}
+
+\setcounter{page}{1}
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\include{capitulos/Introduccion}
+\include{capitulos/Capitulo1}
+\include{capitulos/Capitulo2}
+\include{capitulos/Capitulo3}
+\include{capitulos/Capitulo4}
+\include{capitulos/Capitulo5}
+
+
+\bibliographystyle{ieeetr}
+\bibliography{referencias}
+
+
+\appendix   % inician los ap√àndices de la tesis
+
+% los cap√åtulos que se incluyan a partir de aqu√å aparecen
+% como ap√àndices
+\include{capitulos/ApendiceA}
+
+% estos comandos generan la bilbiograf√åa
+% La bibliograf√åa se obtiene de la base de datos
+% Estilos:
+%	 plain (sistema num√àrico, orden alfab√àtico)
+%	 unsrt (Sistema num√àrico, en el orden en que van apareciendo las citas) ------
+%	 alpha (Sistema autor-fecha abreviado, orden alfab√àtico)
+%	 abbrv (Sistema autor-fecha abreviado, estilo bibliogr¬∑fico alfab√àtico abreviado)
+%	 ieeepes (Bibliography Style file for articles according to IEEE instructions) Basado en unsrt
+
+
+
+\end{document}

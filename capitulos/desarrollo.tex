@@ -1,0 +1,43 @@
+
+\chapter{Desarrollo [Puede ser un título más concreto]}
+
+
+
+
+
+
+
+
+[Así es como puedes insertar figuras en \LaTeX:]
+
+%incluir figuras
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width=5cm,height=50mm]{Escudo-uacj2015-color-sin-fondo.png}
+	\end{center}
+	\caption{Aquí va el letrero de la figura, no olvides puntualizarla al final.}
+	\label{fig:logoblack}
+\end{figure}
+
+%incluir teoremas, ver theorems.sty para otras opciones
+
+\begin{theorem}[Mi teorema]
+    Así puedes definir teoremas, por si aplica que en tu trabajo los tengas.
+\end{theorem}
+
+\begin{definition}[Mi definición]
+\label{midef}
+    Así puedes introducir definiciones.
+\end{definition}
+
+\begin{lemma}[Mi Lema]
+    Así puedes definir lemas.
+\end{lemma}
+
+\begin{corollary}[Mi corolario]
+    Así puedes definir corolarios.
+\end{corollary}
+
+Así hago referencia tanto a la Figura~\ref{fig:logoblack}, como a mi Definición~\ref{midef}, a lo largo del texto de un párrafo, por ejemplo. Igual con los demás, incluso las secciones y subsecciones, como por ejemplo, Sección~\ref{antecedentes}.
+
+%\blindtext

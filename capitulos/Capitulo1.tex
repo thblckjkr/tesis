@@ -1,16 +1,6 @@
-\section{Introducción}
+\chapter{Planteamiento del Problema}
 
-Las redes de monitoreo de calidad del aire de alta densidad son una necesidad creciente de las áreas urbanizadas. Estas permiten monitorear la calidad del aire a escala local, generando información vital para la toma de desiciones en áreas de salud pública. Al incrementar la cantidad de estaciones de monitoreo, la resolución de los datos aumenta, pero también aumentan el costo, la infraestructura y el personal necesario para atenderlas \cite{urban_air_quality}. De la misma forma, la demanda para redes de monitoreo climatológico de alta densidad ha ido en aumento por su utilidad en la medición de los impactos de las políticas de control en el ambiente \cite{muller_sensors_and_the_city}.
-
-Las instalaciones de monitoreo climatológico eran acostumbradas a ubicarse en las afueras de complejos ubranizados, centrados en la recolección de información para un análisis a escala global de los datos climatológicos, tales como el análisis del calentamiento global y los índices de radiación, así como otros datos importantes. Debido a los cambios en las necesidades de calidad y cantidad de datos, esto ha cambiado significativamente \cite{oke_2004}, y debido a ello, las redes de monitoreo de alta densidad se han convertido en un reto logístico y económico por resolver.
-
-Las estaciones de monitoreo climatológico funcionan de la misma forma que la mayoría de los servidores en el mercado; Un equipo de cómputo que está corriendo un servicio escucha constantemente las peticiones de los clientes a los que está conectado, creando y actualizando datos conforme es necesario. El equipo de cómputo además se conecta a sensores que utiliza para el monitoreo contínuo de datos, los procesa, y los almacena para su posterior análisis. Esto crea la posibilidad de crear e integrar sistemas de monitoreo de equipos de cómputo para el análisis de la salud de las estaciones.
-
-\pagebreak
-
-\section{Planteamiento del problema}
-
-\subsection{Antecedentes}
+\section{Antecedentes}
 
 El desplegar y mantener una red meteorológica urbana compone bastantes retos: Entre la creciente dificultad de crear sistemas de medición estandarizados que se adapten al siempre cambiante paisaje urbano; como la instalación de los equipos de medición y de guardado de datos en áreas que permitan acceso para mantenimiento y que sean seguros; y la dificultad de encontrar un punto de acceso a internet adecuado para transferir la información generada, el generar una red de monitoreo es una tarea extensa y compleja.
 
@@ -53,10 +43,45 @@ Actualmente, el sistema de monitoreo de calidad del aire y climatológico de la 
 Una parte vital de los sistemas de monitoreo es el registro detallado de incidentes para su posterior análisis o referencia y actualmente, no se cuenta con un registro de causas y soluciones, una base de conocimientos para los fallos de las estaciones meteorológicas existentes, así como tampoco existe un reporte automático de la calidad de los datos meteorológicos derivado de los diagnósticos y estado de salud de las estaciones meteorológicas, lo cual dificulta el uso de la información recabada por las mismas por los usuarios qeu accedan a la información que es recabada.
 
 
-\subsection{Definición del problema}
+\section{Definición del problema}
 
 La falta de una plataforma estandarizada para el monitoreo de estaciones meteorológicas que permita un monitoreo contínuo y control de diversos tipos de estaciones, así como la disponibilidad del acceso a los datos, y un registro de incidentes es una dificultad creciente. Con redes cada vez más densas que son cada vez más accesibles económicamente y menos complejas de crear, se hace notar la necesidad de un sistema estandarizado y compatible con soluciones existentes para el monitoreo de las estaciones.
 
 %! TODO: Posibilidad de integrar con FarmOS y otros. Enfocarse en la amplia disponibilidad y accesibilidad general.
 
 %! Tiempo de respuesta como aporte secundario en la metodología
+
+
+\section{objetivo general}
+
+Desarrollar un sistema de monitoreo y control para estaciones meteorológicas que permita un monitoreo continuo del personal no especializado al cuidado de las mismas, con el objetivo de proveer un mejor mantenimiento preventivo y correctivo de las estaciones para así obtener una mejor calidad de datos meteorológicos.
+
+\subsection{Objetivos específicos}
+
+\begin{itemize}
+   % \item Hacer un sistema modular y extendible para el monitoreo de las estaciones meteorológicas.
+
+   \item Desarrollar un sistema central para coordinar y recolectar los datos de las estaciones.
+
+   \item Diseñar un API REST para consultar estatus de las estaciones meteorológicas.
+
+   \item Diseñar e implementar una interfaz gráfica para monitorear el estatus de las estaciones.
+
+   \item Integrar las diferentes estaciones meteorológicas existentes al sistema creando los controladores correspondientes.
+
+   \item Integrar un sistema existente de notificaciones/alertas de terceros para fallos críticos de las estaciones.
+\end{itemize}
+
+\section{justificación}
+
+Creando un sistema de monitoreo eficaz para las estaciones meteorológicas se pretende el alcanzar una mayor calidad de los datos obtenidos de las mismas, así como una mejor documentación de los sistemas meteorológicos por consecuencias. Esto pretende dar el tiempo al personal especializado en enfocarse en expandir las redes existentes meteorológicas, mejorando a largo plazo la calidad y la definición de los datos recabados con la misma cantidad de esfuerzo.
+
+Además, haciendo el sistema de monitoreo un proyecto público y compatible con soluciones existentes, se pretende el ayudar a mejorar la calidad y confiabilidad de las redes de monitoreo meteorológico, de calidad del aire y climatológico al rededor del mundo.
+
+\subsection{Alcances y limitaciones}
+
+Si bien se pretende que el proyecto tenga la flexibilidad suficiente para adaptarse a nuevos casos de uso sin necesidad de reescribir grandes partes del mismo, también se consideran varios límites:
+
+La integración de estaciones meteorológicas se limitará a cubrir casos conocidos y recurrentes de estaciones meteorológicas existentes, como lo son las estaciones Davis Vantage Pro® conectadas a un RaspberryPi como DataLogger, así como las estaciones Campbell® accesadas directamente por su dirección IP y a las que se accesa por medio de una RaspberryPi que funciona como DataLogger. El proyecto estará limitado a conectarse a solamente una de cada uno de los tipos de estaciones meteorológicas existentes.
+
+Así mismo, la interfaz gráfica, y el diseño y la implementación del API se limitarán a cubrir los casos comunes de fallo de las estaciones anteriormente mencionadas. Respecto a los servicios que el sistema monitoreará, se pretende que sólo se monitoreen los escenciales para el monitoreo y funcionamiento correcto del sistema de recolección de datos existentes, tales como el servicio WeeWX, el proveedor de VPN y el servicio de backups por estación si es que existe. De la misma forma, el proyecto se limitará a adaptarse a la infraestructura de red existente y a integrar estaciones que se encuentren recolectando datos.

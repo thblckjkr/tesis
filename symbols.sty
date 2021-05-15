@@ -1,0 +1,92 @@
+%% symbols.sty
+%%
+%% Crated and mantained by Juan Antonio Navarro, ma108907@mail.udlap.mx
+%% http:\\www.udlap.mx\~ma108907\latex
+%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{symbols}[2002/12/11 Personal macros for common math symbols]
+\RequirePackage{amssymb}
+\RequirePackage{amsmath}
+
+% Font Declarations
+\DeclareTextFontCommand{\normalrm}{\normalfont\rmfamily}
+\DeclareTextFontCommand{\normalbf}{\normalfont\bfseries}
+\DeclareTextFontCommand{\normalit}{\normalfont\itshape}
+\DeclareTextFontCommand{\normalsf}{\normalfont\sffamily}
+\DeclareTextFontCommand{\normaltt}{\normalfont\ttfamily}
+
+% Text Commands
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+% -----------------------------------------------------------------
+% Math Symbols
+% -----------------------------------------------------------------
+
+% ordinary symbols
+\newcommand{\RR}{\mathbb{R}}       % Real Numbers
+\newcommand{\QQ}{\mathbb{Q}}       % Rational Numbers
+\newcommand{\NN}{\mathbb{N}}       % Natural Numbers
+\newcommand{\ZZ}{\mathbb{Z}}       % Integer Numbers
+\newcommand{\CC}{\mathbb{C}}       % Complex Numbers
+\newcommand{\lxnot}{{\sim}}        % Explicit Negation
+\newcommand{\lbox}{\square}        % Modal Box
+\newcommand{\ldiamond}{\lozenge}   % Modal Diamond
+\newcommand{\sig}{\mathcal{L}}     % Signature
+\newcommand{\Lit}{\normalit{Lit}}  % Literals
+
+% binary operators
+\newcommand{\lif}{\mathbin{\leftarrow}}       % Implied by
+\newcommand{\lpif}{\mathbin{\normaltt{:-}}}   % Gelfond's Logic Programming Implication
+\newcommand{\liff}{\mathbin{\leftrightarrow}} % If and only if
+\newcommand{\lthen}{\mathbin{\rightarrow}}    % Implies
+
+% relation symbols
+\newcommand{\st}{\mid}       % such that: \set{ x \st x \in W }
+\newcommand{\tq}{\mid}       % "tal que", alias for "such that"
+\newcommand{\prove}{\vdash}  % proves relation
+\newcommand{\cprove}{\Vdash} % consistent and proves relation
+
+% named operators
+\DeclareMathOperator{\Int}{Int}                % Interior of a set
+\DeclareMathOperator{\Img}{Im}                 % Image of a function
+\DeclareMathOperator{\lpnot}{\normalit{not\/}} % Gelfond's default negation
+\DeclareMathOperator{\Cn}{\normalit{Cn\/}}     % Consequence closure
+
+% -----------------------------------------------------------------
+% Math Constructions
+% -----------------------------------------------------------------
+\newcommand{\set}[1]{\left\lbrace#1\right\rbrace}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\setcomp}[1]{\widetilde{#1}}
+
+\newcommand{\logic}[1]{\normalrm{#1}}
+\newcommand{\class}[1]{\ensuremath{\mathsf{#1}}}
+\newcommand{\Gi}[1][i]{\ensuremath{\logic{G}_{#1}}}
+
+\newcommand{\equivin}[1]{\equiv_\logic{#1}}
+\newcommand{\provein}[1]{\prove_\logic{#1}}
+\newcommand{\cprovein}[1]{\cprove_\logic{#1}}
+\newcommand{\notprovein}[1]{\not\prove_\logic{#1}}
+\newcommand{\consextin}[1]{\xrightarrow{\,\logic{#1}\,}}
+\newcommand{\Cnin}[1]{\Cn_\logic{#1}}
+
+% environments
+% some packages redefine the {quote} environment. Here we use de basic definition of
+% quote given in article.cls.
+\newenvironment{basicquote}
+  {\list{}{\rightmargin\leftmargin}\item\relax}
+  {\endlist}
+
+\newenvironment{lpblock}[1][l]
+  {\begin{basicquote}$\begin{array}{#1}}
+  {\end{array}$\end{basicquote}}
+  
+\newenvironment{ttblock}[1][l]
+  {\begin{basicquote}\normalfont\ttfamily\begin{tabular}{#1}}
+  {\end{tabular}\end{basicquote}}
+
+% special commands
+\newcommand{\makeblindtitle}{\begin{center}\Large\textbf{\@title}\end{center}}
+
