@@ -1,0 +1,43 @@
+
+Selección de base de datos.
+
+Utilizando la metodología de simplemente hacer lo que los otros que ya han trabajado en ello han decidido, la opción más lógica sería realizar el proyecto con MariaDB, es el sistema de base de datos que Icinga utiliza, un sistema alternativo a Nagios, que surgió como un fork del mismo por cuestiones de licenciamiento. MariaDB ha demostrado ser suficiente para una base de datos de este tipo de sistemas, por lo cual parece ser una de las opciones más lógicas a utilizar.
+
+Si quisieramos irnos por un esquema de base de datos menos convencional, tal como son las bases de datos conocidas como \textit{time series database}, estas son bases de datos especializadas en el almacenar información que tiene como característica principal una estampa de tiempo para la información que poseen. Sin embargo, los sistemas de monitoreo, si bien no son incompatibles con este tipo de motores de base de datos, no aportan una gran ventaja sobre las bases de datos relacionales convencionales.
+
+La desición de utilizar una time series database o una base de datos relacional convencional se puede tomar al pensar en el tipo de datos que se almacenarán. ¿La base de datos contendrá solamente los datos que se salgan de ciertos parámetros en eventos especiales, o contendrá una serie de tiempo en la que se almacenen los valores que se monitorean?
+
+En el caso de los servicios como lo son WeeWX, y el servicio de VPN (así como otros), la pregunta es relativamente sencilla. Sólo necesitamos la información del servicio cuando tiene una falla, ya que cuando está funcionando correctamente la respuesta es estándar. Por lo tanto, en el caso de los servicios sólo requerimos de un sistema por eventos que almacene la fecha de falla, así como algunos datos de log que nos ayuden a entender la falla más a fondo (tal vez incluso logs relevantes).
+
+%! Incluir imagen del servicio funcionando aquí
+
+En el caso de la información como lo es el espacio en disco y el uso en CPU/RAM, estos datos se adaptan más a una time series database.
+
+Además de todo esto, se tiene que mantener la información relacional de la base de datos, tales como son los incidentes junto con sus soluciones y reportes.
+
+Debido a todo esto, podría considerarse que un sistema híbrido podría ser la mejor solución para este caso, el problema es si la logística de un sistema hibrido vale la pena para una red de datos meteorológica de alta densidad.
+
+Uno de los ejemplos de redes meteorológicas densas que existen densas son redes de 50 nodos (referencia aquí). Por lo tanto, podemos establecer que es necesario tener los datos de una red meteorológica de 50 nodos para tener datos realistas de la información que se requiere.
+
+Tomando en cuenta 50 nodos, X servicios, y Y datos, podemos asumir que con el siguiente código se puede evaluar la diferencia entre la carga de los sistemas.
+
+```
+Codigo con faker, completo con docker, comparando el tiempo de ejecución de MariaDB con prometheus y calcular un híbrido entre ambos.
+$ docker run prometheus-db
+$ python '
+insert ALL into database
+```
+
+incluir link a github.
+
+Tal como es posible observar, el tiempo de búsqueda de la información es negligible a esta escala de datos. Por lo tanto no es necesario realizar un sistema hýbrido entre bases de datos.
+
+Para que un sistema de este estilo requiera una solución especializada, se requeriría que el sistema fuera de X nodos (asumiendo un crecimiento de la carga lineal), para que el tiempo de respuesta en MariaDB sobrepasara 1 segundo por query.
+
+
+
+La razón de esto, es que los sistemas de monitoreo suelen centrarse en
+
+Con una prueba sintética de carga, se puede simular la carga a la que estaría sometido el sistema de monitoreo.
+
+
