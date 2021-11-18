@@ -182,3 +182,7 @@ git reset
 
 git apply ~/Dropbox/Documents/tesis.patch
 ```
+
+
+Figma original dashboard
+https://www.figma.com/community/file/809469097394620549
