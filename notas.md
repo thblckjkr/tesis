@@ -186,3 +186,12 @@ git apply ~/Dropbox/Documents/tesis.patch
 
 Figma original dashboard
 https://www.figma.com/community/file/809469097394620549
+
+
+Cambiar listing a listados
+
+
+En vez de generar reportes, generar alertas
+El diagrama deve de tener un inicio y un fin, solamente
+Agregar una flecha
+Una vez que genera la alerta, termina la ejecuci'on

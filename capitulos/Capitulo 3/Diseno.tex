@@ -55,7 +55,7 @@ En cuanto al manejo de la información adicional de las estaciones meteorológic
 
 Con todas estas consideraciones en mente, se creó una base de datos que corresponde con los contenidos que se muestran en el modelo entidad-relación que se puede obeservar en la Figura \ref{fig:diagrama_base_de_datos}.
 
-\begin{figure}[!ht]
+% Agregar formas normales, y \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.86\linewidth]{images/diagrams/database_diagram.png}
 	\caption{Modelo entidad-relación del proyecto meteoreo}
@@ -94,7 +94,8 @@ Debido a la sencillez que el sistema de cnfiguración de contenedores \emph{dock
 El archivo de configuración fué almacenado en la raíz del proyecto, con el nombre de \texttt{docker-compose.yml}  tal como el estándar de la utilería \texttt{docker-compose} sugiere, y este archivo tiene el contenido siguiente que se muestra en el listado \ref{lst:docker-compose}. En este archivo, se especifica que se requiere de un servicio de \textit{MySQL}, el cuál fué utilizado para corroborar que el desarrollo era de utilidad con el motor seleccionado para producción, así como una referencia al archivo \textit{Docker} en el que se tiene el contenedor que se utilizará para el desarrollo. Además, se hace referencia a algunas variables, como \texttt{MYSQL\_DATABASE}, que son obtenidas de un archivo \texttt{\.env} estandarizado en la raíz del proyecto.
 
 %! TODO: INSERTAR Referencia de archivo docker-compose en el anterior parrafito
-% \begin{listing}
+% Cambiar líneas de configuracion por su relativo en texto y explicarlo en el párrafo
+\begin{listing}
 \begin{minted}{yaml}
 version: '3.3'
 services:
@@ -103,20 +104,11 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    volumes:
-      - './:/app:delegated'
-    depends_on:
-      - mysql
-    environment:
-      - WEB_CONCURRENCY=2
-      - PORT=80
-      - PRE_START_PATH=/app/app/prestart.sh
-      - GUNICORN_CMD_ARGS="--reload"
-    ports:
-      - '81:80'
+    # ...
+    # Configuración del ambiente
+    # ...
     networks:
       - meteoreo-backend
-
   mysql:
     image: mysql
     container_name: meteoreo-mysql
@@ -131,16 +123,15 @@ services:
       - '3306:3306'
     networks:
       - meteoreo-backend
-
 networks:
   meteoreo-backend:
     driver: bridge
 \end{minted}
-% \caption{Archivo docker-compose}
-% \label{lst:docker-compose}
-% \end{listing}
+\caption{Archivo docker-compose}
+\label{lst:docker-compose}
+\end{listing}
 
-El archivo de \textit{docker-compose} tiene una dependencia con un archivo de Docker, que se pretende que facilite la adición de librerías adicionales al proyecto en la posteridad. Actualmente, extiende la imagen existente de \textit{tiangolo}, el proyecto \textit{Uvicorn-Gunicorn-Fastapi}. Esta imagen fue utilizada como base debido a su increíble flexibilidad para el desarrollo de proyectos en FastApi, sus optimizaciones automáticas para el balanceo de cargas entre diversos procesos creados automáticamente (ya que python es monoproceso) y además, por ser una imagen altamente mantenida por la comunidad, debido a su popularidad. En este archivo también se especifíca el instalar la librería \texttt{inteutils-ping} debido a que el proyecto dependerá de realizar pruebas por \texttt{ping} para revisar la conectividad con las estaciones antes de intentar realizar una conexión y la imagen base no tenía esta librería. \ref{lst:dockerfile}.
+El archivo de \textit{docker-compose} tiene una dependencia con un archivo de Docker, que se pretende que facilite la adición de librerías adicionales al proyecto en la posteridad. Actualmente, extiende la imagen existente de \textit{tiangolo}, el proyecto \textit{Uvicorn-Gunicorn-Fastapi}. Esta imagen fue utilizada como base debido a su increíble flexibilidad para el desarrollo de proyectos en FastApi, sus optimizaciones automáticas para el balanceo de cargas entre diversos procesos creados automáticamente (ya que python es monoproceso) y además, por ser una imagen altamente mantenida por la comunidad, debido a su popularidad. En este archivo también se especifíca el instalar la librería \texttt{inteutils-ping} debido a que el proyecto dependerá de realizar pruebas por \texttt{ping} para revisar la conectividad con las estaciones antes de intentar realizar una conexión y la imagen base no tenía esta librería, el archivo final quedó como se muestra en el Listado \ref{lst:dockerfile}.
 
 %! TODO: Insertar referencia de dockerfile en el anterior parrafito
 

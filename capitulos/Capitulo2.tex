@@ -1,6 +1,6 @@
 \chapter{Marco referencial}
 
-%! Párrafo introductorio
+%* Párrafo introductorio abajo de la frase marco referencial
 
 \section{Marco teórico}
 
@@ -56,22 +56,36 @@ Debido a la naturaleza libre de el desarrollo web, y la poca estandarización de
 
 El estándar OpenAPI es un esquema de definición de estructura de datos en JSON. En este esquema se definen las rutas a las cuáles se puede acceder, los parámetros que aceptan y sus respectivos tipos de datos, así como la información que responde y los tipos de datos de los mismos. Y debido a la naturaleza abierta del esquema, este puede ser generado e integrado nativamente con el uso de diversas tecnologías de desarrollo. Permitiendo, por ejemplo, el generar las clases e interfaces correspondientes para el uso por medio de clases de los datos para lenguajes de programación fuertemente tipados \cite{openapi_generator}.
 
+% Configuración de los archivos, del docker, la forma en la que está configurado el sistema, importar paquetes de python
+
+\section{Marco Conceputal}
+
+Estaciones climatologicas
+
+Una estación climatológica es un sistema de medición de la temperatura, humedad, presión, velocidad del viento, etc. que se encuentra en una ubicación determinada.
+
+Tipos de estaciones: Campbell, RaspberryPI, Arduino, etc.
+
+WeeWX, VPN, NAT, etc.
+
+Diagrama de la red UACJ
+
 \section{Marco tecnológico}
 
 %! Desarrollar el marco tecnológico.
+%! Desarrollar marco tecnológico, con imágenes y etc.
 
 %! Aplicaciones, capacidades, performance, etc
 
-A continuación se presenta una descripción de las herramientas de tecnología que se utilizarán para el desarrollo del proyecto:
+A continuación se presenta una descripción de las herramientas de tecnología que se utilizarán para el desarrollo del proyecto.
 
 \subsection{Docker}
 
 Docker es un sistema para la creación y distribución de imágenes de software, principalmente orientado a servidores, que permite el crear un ambiente replicable agnóstico al sistema operativo del host. Es un estándar en la industria de desarrollo de software para crear sistemas complejos manteniendo una relativa simpleza al desplegar nuevas instancias \cite{rad2017dockerAnalysis}.
 
-%!  Palabra figura
+%* Palabra figura
 
-Docker utiliza un sólo Kérnel de linux para la creación de los contenedores y cada uno de los contenedores puede contener hasta \textit{n} procesos, lo que lo ayuda a reducir el tamaño de sistemas complejos \ref{fig:docker_diagrama}. Además de ofrecer una mayor flexibilidad y escalabilidad para tanto para realizar pruebas en máquinas de desarrollo como para distribuir y empaquetar nuevas instancias en ambientes de producción, se ha demostrado que el costo en eficiencia al sistema que lo ejecuta es mínimo comparado con otros métodos para la administración de sistemas complejos tales como las máquinas virtuales y el empaquetado en KVM \cite{rad2017dockerAnalysis, felter2015comparsionPerformance}.
-
+Docker utiliza un sólo Kérnel de linux para la creación de los contenedores y cada uno de los contenedores puede contener hasta \textit{n} procesos, lo que lo ayuda a reducir el tamaño de sistemas complejos como se muestra en la Figura \ref{fig:docker_diagrama}. Además de ofrecer una mayor flexibilidad y escalabilidad para tanto para realizar pruebas en máquinas de desarrollo como para distribuir y empaquetar nuevas instancias en ambientes de producción, se ha demostrado que el costo en eficiencia al sistema que lo ejecuta es mínimo comparado con otros métodos para la administración de sistemas complejos tales como las máquinas virtuales y el empaquetado en KVM \cite{rad2017dockerAnalysis, felter2015comparsionPerformance}.
 
 \begin{figure}[!ht]
 	\centering
@@ -86,7 +100,7 @@ Masonite ORM es una solución creada para python que permite la manipulación de
 
 \subsection{FastAPI}
 
-FastAPI es un framework para desarrollo de APIs REST para Python centrado en el desarrollo rápido con ayuda de las anotaciones estándar de Python. Además de ser uno de los frameworks de desarrollo más rápidos en su ejecución, permite el crear directamente documentación compatible con el estándar OpenAPI sin necesidad de librerías externas \cite{fastapi_ramirez_2020}. Todo esto lo convierte en un framework ideal para extender proyectos existentes en Python y con su permisiva licencia permite % TODO terminar esta oración
+FastAPI es un framework para desarrollo de APIs REST para Python centrado en el desarrollo rápido con ayuda de las anotaciones estándar de Python. Además de ser uno de los frameworks de desarrollo más rápidos en su ejecución, permite el crear directamente documentación compatible con el estándar OpenAPI sin necesidad de librerías externas \cite{fastapi_ramirez_2020}. Todo esto lo convierte en un framework ideal para extender proyectos existentes en Python y con su permisiva licencia permite %* terminar esta oración
 
 \subsection{MariaDB}
 
