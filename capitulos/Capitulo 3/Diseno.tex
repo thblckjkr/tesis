@@ -4,7 +4,7 @@ Conforme a la metodología de desarrollo centrada en el usuario utilizada en est
 
 \subsection{Prototipado de la interfaz gráfica}
 
-Para el desarrollo de un prototipo rápido de la interfaz gráfica, se utilizó el software \textit{Figma}, esto debido a que es un software gratuito, sencillo de utilizar orientado al prototipado de interfaces de alta fidelidad. \textit{Figma} ofrece la capacidad de integrar diferentes \textit{frameworks} de diseño de interfaces, para crear un \textit{design system} (un sistema de diseño) coherente, consistente a través de todo un proyecto. Utilizando este software se decidió utilizar una plantilla de un tablero de control para una plataforma genérica.
+Para el desarrollo de un prototipo rápido de la interfaz gráfica, se utilizó el software \textit{Figma}, esto debido a que es un software gratuito, sencillo de utilizar orientado al prototipado de interfaces de alta fidelidad. \textit{Figma} ofrece la capacidad de integrar diferentes \textit{frameworks} de diseño de interfaces, para crear un sistema de diseño coherente, consistente a través de todo un proyecto. Utilizando este software se decidió utilizar una plantilla de un tablero de control para una plataforma genérica.
 
 Los colores utilizados para el desarrollo de los prototipos, y posteriormente para el desarrollo de la totalidad del proyecto fueron; el color verde \texttt{\#09AB5D} como color principal de la interfaz, debido a su relación con el diseño actual del sitio de consulta de la información de las estaciones meteorológicas, y el color azul \texttt{\#16B2D4} como secundario por su contraste con el color verde y por su actual uso en el sitio existente del LCCA.
 
@@ -21,7 +21,7 @@ En este prototipo de interfaz se tomaron en cuenta en varios factores, uno de el
 
 \pagebreak
 
-La segunda interfaz que fué elegida para su prototipado, fué la interfaz para agregar una nueva estación meteorológica al sistema. Esta interfaz contiene la información elemental que se requiere para registrar una nueva estación. En este caso, se compone de una dirección IP, un usuario, el método de conexión a la misma, el tipo de estación y el dispositivo por el que se accede a la misma. El prototipo realizado se puede observar en la Figura \ref{fig:prototype_add_station}
+La interfaz para agregar una nueva estación al sistema contiene la información elemental que se requiere para registrar una nueva estación. En este caso, se compone de una dirección IP, un usuario, el método de conexión a la misma, el tipo de estación y el dispositivo por el que se accede a la misma. El prototipo realizado se puede observar en la Figura \ref{fig:prototype_add_station}
 
 \begin{figure}[!ht]
 	\centering
@@ -41,48 +41,43 @@ Posteriormente se creó el componente de la tercera parte importante del monitor
 	\label{fig:prototype_solve_error}
 \end{figure}
 
+\pagebreak
+
 \subsection{Diseño de base de datos}
 
 Para el diseño de base de datos del sistema se consideraron dos elementos como relevantes, los datos de las estaciones meteorológicas, que incluyen datos como la conexión a las estaciones y la forma en la que se accederá a ellas, y los eventos que las mismas generen.
 
-Si bien es posible almacenar la información de las estaciones meteorológicas en una \textit{time series database}, en la que la información del estado de cada uno de los servicios y elementos que se monitorean es almacenado sin importar el estado de los mismos, no se considera necesaria la información de los sistemas en su estado funcional, esto debido a que el volumen de datos generado, \textit{O(n*t*s)}, donde \textit{n} es el número de estaciones, \textit{t} la cantidad de veces que la inforamción se consulta por hora y \textit{s} el número de servicios que se consultan, es más grande que la utilidad que se le piensa dar a la información.
+Si bien es posible almacenar la información de el estado de las estaciones en una \textit{time series database}, en la que la información del estado de cada uno de los servicios y elementos que se monitorean es almacenado sin tomar en consideración el estado de los mismos, no se considera necesaria la información de los sistemas en su estado funcional, esto debido a que el volumen de datos generado, \textit{O(n*t*s)}, donde \textit{n} es el número de estaciones, \textit{t} la cantidad de veces que la información se consulta por hora y \textit{s} el número de servicios que se consultan, es demasiado grande en comparación a la utilidad que se podría obtener de los datos generados.
 
-La información más relevante que se puede obtener de acuerdo a los objetivos de este proyecto es el estado de las estaciones de monitoreo en caso de falla, así como estimados de la calidad y accesibilidad de los datos que las estaciones recolectan.
+La información más relevante que se podría obtener de acuerdo a los objetivos de este proyecto y las necesidades del laboratorio, es el estado de las estaciones en caso de falla, e información detallada sobre los estados del evento con el objetivo de incrementar la calidad recabada de los datos.
 
-Debido a esto, la base de datos se diseñó con el objetivo de almacenar la información en forma de eventos, y tomando en cuenta la utilidad futura de auditoría se decidieron agregar tiempos de creación de eventos y de la solución de los mismos. De la misma forma, el borrado de información no está contemplado en el sistema, para esto se implementó la metodología de borrado de información por medio de \textit{borrados suaves}, los cuales desactivan los registros lógicamente en el sistema sin borrar de forma física los datos de la base de datos.
+Debido a esto, la base de datos se diseñó con el objetivo de almacenar la información en forma de eventos, y tomando en cuenta la utilidad futura de auditoría se decidieron agregar tiempos de creación de eventos y de la solución de los mismos. Además, para ayudar a preservar una mayor consistencia de los datos, se hizo uso de los \textit{borrados suaves}, una metodología de manejo de la información en la que los registros físicos no son removidos, sino que son desactivados lógicamente.
 
 En cuanto al manejo de la información adicional de las estaciones meteorológicas, es decir, la información de las mismas que no es indispensable para el funcionamiento del sistema pero es necesaria para controles internos, se agregó una tabla de atributos extra. Esta tabla contiene información diversas de las estaciones, y consiste en la forma \textit{llave -> valor} para los campos, esto, para asegurar la mayor flexibilidad posible de los datos y su almacenamiento. Sacrificando velocidades de indexamiento y procesamiento por una mayor libertad para extender y modificar el sistema.
 
-Con todas estas consideraciones en mente, se creó una base de datos que corresponde con los contenidos que se muestran en el modelo entidad-relación que se puede obeservar en la Figura \ref{fig:diagrama_base_de_datos}.
+Si bien habría sido posible el crear un campo extra en formato \textit{JSON} para almacenar la información extra de las bases de datos, estos datos habrían sido enviados por defecto en cada consulta a la base de datos incrementando significativamente el tráfico a la base de datos, sin mencionar la complejidad que agrega en ORM convencionales el hacer uso de este tipo de dato.
 
-% Agregar formas normales, y documentar mi proceso de normalización actual de las tablas.
+Otra consideración que se tomó para el diseñado de la base de datos, es el crear una estructura en la que fuera posible migrar datos de una instancia a otra del proyecto, para que dado el caso que se requiriera el cambio de instancia de unos datos (por ejemplo, en el caso de un cambio de posesión del equipo) pudiera ser mantenida la información recolectada de las estaciones. Para esto, se utilizó un \textit{uuid} como llave principal de la tabla de estaciones, lo que permite migrar la información de un sistema sin tener que realizar cambios al identificador único de las estaciones, que suele ser un dato de tipo entero sin signo autoincremental.
+
+Con todas estas consideraciones en mente, se creó una base de datos que corresponde con los contenidos que se muestran en el modelo entidad-relación que se puede obeservar en la Figura \ref{fig:diagrama_base_de_datos}. Para el diseño de esta base de datos, se optó por utilizar una normalización orientada al costo beneficio, sin perder la calidad de los datos obtenidos. Por ello se realizó un análisis informal con base en desiciones lógicas para la organización de la información en formas normales \cite{justifying_normalization_lee}.
+
+Las relaciones de la información después de un proceso de normalización quedaron de la siguiente forma:
+
+\begin{itemize}
+   \item De uno a muchos, de la tabla de datos de estaciones a los campos adicionales que pudieran ser requeridos.
+   \item De uno a muchos, de la tabla de estaciones a una tabla de eventos que pudieran presentar estas estaciones.
+   \item De uno a muchos, de la tabla de soluciones o comentarios a la tabla de eventos.
+   \item De uno a uno, de la tabla de eventos a la tabla de soluciones.
+\end{itemize}
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=0.86\linewidth]{images/diagrams/database_diagram.png}
+	\includegraphics[width=1\linewidth]{images/diagrams/database_diagram.png}
 	\caption{Modelo entidad-relación del proyecto meteoreo}
 	\label{fig:diagrama_base_de_datos}
 \end{figure}
 
-\subsection{Arquitectura del sistema}
-
-Para realizar la conexión a las estaciones meteorológicas, se decidió dividir el proyecto en dos componentes principales, un módulo de generación de reportes y un sistema de controladores que contuvieran el código de conexión y restauración de reportes de las estaciones.
-
-Los drivers se desarrollaron con el objetivo de tener una plataforma estándar para la consulta de los datos de las estaciones.
-
-Tomando como referencia el proyecto de \textit{Monitoring Plugins} \cite{monitoring_plugins}, el cual es compatible con diversos proyectos especializados en monitoreo de sistemas de alta resilencia, tales como \textit{Nagios} y \textit{Icinga}, se decidió crear un proyecto basado en drivers fácilmente extendibles.
-
-%! TODO: Todo el desarrollo de la arquitectura del sistema
-
-\subsection{Selección del motor de base de datos}
-
-Para el caso de uso del centro de monitoreo de estaciones meteorológicas de la UACJ, en el que la red actual cuenta con 13 estaciones, no es necesario considerar como cuello de botella el motor de base de datos que se utilizará para el sistema. Esto debido a que, con un tiempo mínimo para la consulta del estado de las estaciones de hasta 5 minutos entre consultas, el sistema podría funcionar incluso con un tiempo promedio de 23 segundos desde la consulta hasta el almacenamiento de la información. Esto, sin tomar en cuenta que es posible paralelizar el proceso de consulta y generación de eventos de las estaciones meteorológicas, por lo que no se considera como algo relevante la selección de un motor de base de datos que cuente con alto rendimiento de lectura y/o escritura de la información.
-
-Debido a que la infraestructura del sistema de las estaciones meteorológicas ya utiliza un motor relacional de base de datos adecuado para el proyecto, MySQL, se pretende utilizarlo para este proyecto, reduciendo la carga de mantenimiento para el equipo de la universidad, además de un sistema familiar que permitirá a los involucrados realizar consultas a la información sin necesidad de aprender nuevas tecnologías.
-
-Para esto, se utilizó la flexibilidad que ofrecen los sistemas modelado de objetos y roles (ORM, por sus siglas en inglés) \cite{Halpin2006}, en la que se permite el crear sistemas agnósticos de un motor de base de datos en específico, y la creación de modelos, esquemas y relaciones de base de datos se dejan al \textit{framework} de modelado de datos. Esto además ofrece soporte para migraciones para realizar actualizaciones de base de datos controladas en caso de requerir extender un sistema existente.
-
-El motor de base de datos seleccionado para el desarrollo local del proyecto fué el conocido como \textit{SQLite}, debido a la flexibilidad que ofrece al ser una base de datos que sólo depende de un archivo para funcionar y que no requiere de instalar paquetes de software extra en la estación que se utiliza para desarrollar y probar el proyecto.
+\pagebreak
 
 \subsection{Configuración de ambiente de
 desarrollo}\label{configuraciuxf3n-de-ambiente-de-desarrollo}
@@ -93,7 +88,7 @@ El ambiente de desarrollo que se seleccionó para la sección de python del proy
 
 Debido a la sencillez que el sistema de cnfiguración de contenedores \emph{docker compose} ofrece, se eligió para almacenar los parámetros de configuración de los contenedores en vez de crear comandos compatibles con docker para ello. Esto permite una fácil edición de los servicios y la aplicación de los mismos de una forma estandarizada que permite una comprensión más eficaz de los parámetros y de las dependencias.
 
-El archivo de configuración fué almacenado en la raíz del proyecto, con el nombre de \texttt{docker-compose.yml}  tal como el estándar de la utilería \texttt{docker-compose} sugiere, y este archivo tiene el contenido siguiente que se muestra en el listado \ref{lst:docker-compose}. En este archivo, se especifica que se requiere de un servicio de \textit{MySQL}, el cuál fué utilizado para corroborar que el desarrollo era de utilidad con el motor seleccionado para producción, así como una referencia al archivo \textit{Docker} en el que se tiene el contenedor que se utilizará para el desarrollo. Además, se hace referencia a algunas variables, como \texttt{MYSQL\_DATABASE}, que son obtenidas de un archivo \texttt{\.env} estandarizado en la raíz del proyecto.
+El archivo de configuración fué almacenado en la raíz del proyecto, con el nombre de \texttt{docker-compose.yml}  tal como el estándar de la utilería \texttt{docker-compose} sugiere, y este archivo tiene el contenido siguiente que se muestra en el Listado \ref{lst:docker-compose}. En este archivo, se especifica que se requiere de un servicio de \textit{MySQL}, el cuál fué utilizado para corroborar que el desarrollo era de utilidad con el motor seleccionado para producción, así como una referencia al archivo \textit{Docker} en el que se tiene el contenedor que se utilizará para el desarrollo. Además, se hace referencia a algunas variables, como \texttt{MYSQL\_DATABASE}, que son obtenidas de un archivo \texttt{\.env} estandarizado en la raíz del proyecto.
 
 %! TODO: INSERTAR Referencia de archivo docker-compose en el anterior parrafito
 % Cambiar líneas de configuracion por su relativo en texto y explicarlo en el párrafo

@@ -195,3 +195,6 @@ En vez de generar reportes, generar alertas
 El diagrama deve de tener un inicio y un fin, solamente
 Agregar una flecha
 Una vez que genera la alerta, termina la ejecuci'on
+
+
+Crear una imagen de donde fue "instalado" el proyecto., similar al mapa de la ciudad que aparece en el tríptico UACJ.
