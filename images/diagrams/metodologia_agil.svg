@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="8.5in"
+   height="11in"
+   viewBox="0 0 816 1056"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
+   sodipodi:docname="metodologia_agil.svg"
+   inkscape:export-filename="/home/thblckjkr/repos/tesis/images/diagrams/metodologia_agil.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="in"
+     showgrid="false"
+     inkscape:snap-text-baseline="false"
+     inkscape:zoom="1.2291667"
+     inkscape:cx="355.52542"
+     inkscape:cy="483.66102"
+     inkscape:window-width="1900"
+     inkscape:window-height="1004"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline">
+    <ellipse
+       style="fill:#ececec;fill-opacity:1;stroke-width:1.36973;stroke-linecap:round;paint-order:stroke fill markers;stroke:none"
+       id="path114805"
+       cx="433.77222"
+       cy="466.93338"
+       rx="199.53885"
+       ry="200.11562" />
+    <path
+       style="fill:#a14293;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 325.01695,608.54237 c 0,0 25.22034,19.52543 50.44068,26.84746 25.22034,7.32204 126.20339,8.0339 126.20339,8.0339 l 177.8644,0.10169 0.20339,-20.54237 72,41.69492 -70.77966,43.11864 -0.40678,-21.15254 -278.03389,1.42373 -103.52543,-45.15254 z"
+       id="path24805" />
+    <path
+       style="fill:#184890;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 127.71068,644.59375 315.82504,0.28763 -4.88981,-20.42219 68.16988,27.03784 -48.89823,55.51387 -4.02692,-18.69638 -326.17996,-1.72582 z"
+       id="path11142"
+       sodipodi:nodetypes="cccccccc" />
+    <path
+       style="fill:#30a6aa;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 497.89906,629.34901 c 0,0 34.90093,-14.68889 59.25315,-40.26914 29.89029,-31.39759 31.35239,-44.87131 31.35239,-44.87131 l -18.98402,-6.61565 61.55425,-42.85786 20.13456,73.05971 -20.70984,-10.35492 c 0,0 -9.20266,25.54084 -32.2153,51.7746 -23.01264,26.23376 -73.63499,62.12952 -73.63499,62.12952 z"
+       id="path37485"
+       sodipodi:nodetypes="csccccczcc" />
+    <path
+       style="fill:#83ac28;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 604.33695,488.73849 c 0,0 7.07016,-32.49723 -2.99704,-66.35032 -12.35663,-41.55179 -25.75611,-54.61048 -25.75611,-54.61048 l -14.16936,13.1733 -7.55476,-74.71934 70.74535,17.88057 -16.64444,13.82613 c 0,0 22.2508,35.54091 33.55152,68.55735 11.30071,33.01645 8.49488,84.82287 8.49488,84.82287 z"
+       id="path37485-3"
+       sodipodi:nodetypes="csccccczcc" />
+    <path
+       style="fill:#d03517;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 360.33814,304.76457 c 0,0 -30.54935,12.03096 -54.76214,37.74324 -29.71914,31.55962 -33.54865,47.48178 -33.54865,47.48178 l 20.85022,4.68183 -57.86271,47.25968 -24.39587,-69.49155 20.15565,6.37776 c 0,0 8.22793,-29.17397 41.47047,-63.46466 33.24254,-34.29068 72.05716,-50.35527 72.05716,-50.35527 z"
+       id="path37485-3-7"
+       sodipodi:nodetypes="csccccczcc" />
+    <path
+       style="fill:#cd1962;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 254.87124,446.75234 c 0,0 -2.03805,30.87981 5.62406,65.35694 9.40459,42.31774 25.60042,53.2823 25.60042,53.2823 l 15.58944,-14.61577 6.57597,74.41994 -71.19069,-18.87114 16.60196,-13.08821 c 0,0 -27.84967,-27.22711 -37.53334,-73.99402 -9.68367,-46.76691 -2.31055,-77.54583 -2.31055,-77.54583 z"
+       id="path37485-3-7-5"
+       sodipodi:nodetypes="csccccczcc" />
+    <g
+       id="g55376"
+       transform="translate(-126.73527,-139.83685)"
+       style="fill:#f29200;fill-opacity:1;stroke:none">
+      <path
+         style="fill:#f29200;fill-opacity:1;stroke:none;stroke-width:0.992703px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 663.42448,465.24601 c 0,0 -29.49271,-19.5927 -56.31994,-27.49189 -26.82724,-7.89918 -61.89033,-6.97266 -61.89033,-6.97266 l 3.14812,20.59313 -66.98689,-31.70303 51.68286,-52.62516 2.82928,21.34233 c 0,0 51.45062,-4.97444 92.9583,10.90229 41.50768,15.87673 59.48981,32.29775 59.48981,32.29775 z"
+         id="path37485-3-6"
+         sodipodi:nodetypes="czccccczcc" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:105.125px;line-height:1.25;font-family:'Noto Looped Lao';-inkscape-font-specification:'Noto Looped Lao, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#898584;fill-opacity:1;stroke:none;stroke-width:2.62813"
+       x="318.88589"
+       y="504.43872"
+       id="text100039"><tspan
+         sodipodi:role="line"
+         id="tspan100037"
+         x="318.88589"
+         y="504.43872"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:105.125px;font-family:'Noto Looped Lao';-inkscape-font-specification:'Noto Looped Lao, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#898584;fill-opacity:1;stroke-width:2.62813;stroke:none">ÁGIL</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:25.0898px;line-height:1.25;font-family:'Noto Looped Lao';-inkscape-font-specification:'Noto Looped Lao, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.627244"
+       x="150.19843"
+       y="661.86829"
+       id="text149639"
+       transform="scale(0.98167958,1.0186623)"><tspan
+         sodipodi:role="line"
+         id="tspan149637"
+         x="150.19843"
+         y="661.86829"
+         style="fill:#ffffff;stroke:none;stroke-width:0.627244">ANÁLISIS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:25.0898px;line-height:1.25;font-family:'Noto Looped Lao';-inkscape-font-specification:'Noto Looped Lao, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.627244"
+       x="416.27438"
+       y="280.65027"
+       id="text149639-2"
+       transform="scale(0.9816796,1.0186623)"><tspan
+         sodipodi:role="line"
+         id="tspan149637-2"
+         x="416.27438"
+         y="280.65027"
+         style="fill:#ffffff;stroke:none;stroke-width:0.627244">PRUEBAS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:25.0898px;line-height:1.25;font-family:'Noto Looped Lao';-inkscape-font-specification:'Noto Looped Lao, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.627244"
+       x="556.74615"
+       y="660.01117"
+       id="text149639-9"
+       transform="scale(0.9816796,1.0186623)"><tspan
+         sodipodi:role="line"
+         id="tspan149637-0"
+         x="556.74615"
+         y="660.01117"
+         style="fill:#ffffff;stroke:none;stroke-width:0.627244">LANZAMIENTO</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:25.0898px;line-height:1.25;font-family:'Noto Looped Lao';-inkscape-font-specification:'Noto Looped Lao, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.627244"
+       x="-32.155872"
+       y="825.61273"
+       id="text149639-9-3"
+       transform="matrix(0.73459868,-0.6511986,0.67573113,0.76227313,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan149637-0-3"
+         x="-32.155872"
+         y="825.61273"
+         style="fill:#ffffff;stroke:none;stroke-width:0.627244">DISEÑO</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:22.7521px;line-height:1.25;font-family:'Noto Looped Lao';-inkscape-font-specification:'Noto Looped Lao, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.5688"
+       x="-648.04449"
+       y="466.7673"
+       id="text149639-9-3-0"
+       transform="matrix(-0.28290461,-0.94003181,0.97544554,-0.29356245,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan149637-0-3-1"
+         x="-648.04449"
+         y="466.7673"
+         style="fill:#ffffff;stroke:none;stroke-width:0.5688">DESARROLLO</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:25.0898px;line-height:1.25;font-family:'Noto Looped Lao';-inkscape-font-specification:'Noto Looped Lao, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.627244"
+       x="-98.972893"
+       y="445.58859"
+       id="text149639-0"
+       transform="matrix(0.72331975,-0.66370429,0.68870794,0.75056929,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan149637-21"
+         x="-98.972893"
+         y="445.58859"
+         style="fill:#ffffff;stroke:none;stroke-width:0.627244">DESPLIEGUE</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:25.0898px;line-height:1.25;font-family:'Noto Looped Lao';-inkscape-font-specification:'Noto Looped Lao, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.627244"
+       x="517.22302"
+       y="-32.145546"
+       id="text149639-7"
+       transform="matrix(0.35770491,0.91418928,-0.94862942,0.37118069,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan149637-5"
+         x="517.22302"
+         y="-32.145546"
+         style="fill:#ffffff;stroke:none;stroke-width:0.627244">EVALUACIÓN</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2"
+     style="display:none">
+    <image
+       width="706"
+       height="709"
+       preserveAspectRatio="none"
+       style="fill:#184890;fill-opacity:1;image-rendering:optimizeSpeed"
+       xlink:href="../agil.png"
+       id="image10996"
+       x="76.153893"
+       y="113.1972" />
+    <path
+       style="fill:#184890;fill-opacity:1;stroke-width:0.81484;stroke-linecap:round;paint-order:stroke fill markers"
+       d=""
+       id="path18292" />
+  </g>
+</svg>

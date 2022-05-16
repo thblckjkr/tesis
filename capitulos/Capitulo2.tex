@@ -1,14 +1,10 @@
 \chapter{Marco referencial}
 
-%! Párrafo introductorio abajo de la frase marco referencial
-
-En este capítulo se abordarán los conceptos clave para entender las necesidades y funcionalidad del proyecto, así como las tecnologías utilizadas para el desarrollo del mismo. Esto abarca el desarrollo de un sistema de desarrollo.
+En este capítulo se abordarán los conceptos clave para entender las necesidades y funcionalidad del proyecto, así como las tecnologías utilizadas para el desarrollo del mismo. Esto abarca el contexto necesario para el desarrollo del sistema
 
 \section{Marco teórico}
 
-% [Es la selección, exposición y análisis de la o las teorías, métodos, procedimientos y conocimientos que sirven para fundamentar el tema, explicar los antecedentes e interpretar los resultados de la investigación. La teoría constituye la base donde se sustentará cualquier análisis, experimento o propuesta de desarrollo de un trabajo de grado.]
-
-De acuerdo a \cite{muller_sensors_and_the_city}, las estaciones meteorológicas son una parte fundamental de las redes meteorológicas que nos ayudan a monitorear diversas variables. Estas variables pueden ser temperatura, dirección y velocidad del viento, humedad relativa, precipitación, entre otros. Las redes meteorológicas se categorizan por tamaño, los cuales van desde redes a micro-escala que tienen un alcance de 10m² hasta redes regionales, a macro escala, y globales. Cada red tiene diferentes configuraciones, métodos de recolección, y objetivos.
+De acuerdo a \cite{muller_sensors_and_the_city}, las estaciones meteorológicas son una parte fundamental de las redes meteorológicas que ayudan a monitorear diversas variables. Éstas pueden ser temperatura, dirección y velocidad del viento, humedad relativa, precipitación, entre otros. Las redes meteorológicas se categorizan por tamaño, los cuales van desde redes a micro-escala que tienen un alcance de 10m² hasta redes regionales, a macro escala, y globales. Cada red tiene diferentes configuraciones, métodos de recolección, y objetivos.
 
 En el caso de la red meteorológica del CECATEV (Centro de Ciencias Atmosféricas y Tecnologías Verdes), la red es de una escala a nivel regional. Esta red se compone de diversas estaciones, las cuales están conectadas por redes privadas virtuales (VPN) para facilitar la comunicación entre las mismas, esto, debido a que las redes de comunicación existentes no suelen contar con una forma de acceder a servicios dentro de la red a la que están conectadas desde un punto externo. La red meteorológica se compone de una varidad heterogénea de estaciones meteorológicas de diversas marcas, capacidades, sensores y métodos de conexión y recolección de datos \cite{red_climatologica_uacj}.
 
@@ -22,7 +18,7 @@ En el caso de la red meteorológica del CECATEV (Centro de Ciencias Atmosférica
 
 Los sistemas informáticos que se componen de más de un componente, utilizan diversos métodos de comunicación entre ellos. Desde el accesar directamente a localizaciones de memoria física o virtual en un dispositivo para compartir información hasta crear librerías compartidas entre sistemas para accesar a la información en un depósito externo (conocidas como APIs), cada forma de acceso a los datos tiene su propio nivel de abstracción, oportunidades, y desventajas, las cuales deben ser evaluadas antes de elegir una tecnología adecuada para responder a las necesidades de cada proyecto.
 
-Un API REST es un estándar de acceso a la información de sistemas externos por medio de protocolos \textit{Web}, tales como HTTP/HTTPS, los cuáles permiten la consulta de datos en cualquier lenguaje que permita realizar conexiones y consultas a sitios web \cite{REST_API_design}. Entre las principales características de los API REST se encuentra que no es necesario proveer un estado previo para acceder a la información, esto implica que no es necesario mas que conocer la ruta en la que se encuentran los datos requeridos para acceder a ellos. Las ventajas que ofrece es la amplia disponibilidad de acceso a los datos y la fácil integración con sistemas existentes de manejo y procesamiento de información \cite{OpenAPI_example}.
+Un API REST es un estándar de acceso a la información de sistemas externos por medio de protocolos \textit{Web}, tales como HTTP/HTTPS, los cuáles permiten la consulta de datos en cualquier lenguaje que permita realizar conexiones y consultas a sitios web \cite{REST_API_design}, como se muestra en la Figura \ref{fig:rest_protocolo_imagen}. Entre las principales características de los API REST se encuentra que no es necesario proveer un estado previo para acceder a la información, esto implica que no es necesario mas que conocer la ruta en la que se encuentran los datos requeridos para acceder a ellos. Las ventajas que ofrece es la amplia disponibilidad de acceso a los datos y la fácil integración con sistemas existentes de manejo y procesamiento de información \cite{OpenAPI_example}.
 
 %! Mencionar esta figura!!
 
@@ -43,16 +39,11 @@ El estándar OpenAPI es un esquema de definición de estructura de datos en JSON
 
 \section{Marco tecnológico}
 
-%! Desarrollar el marco tecnológico.
-%! Desarrollar marco tecnológico, con imágenes y etc.
-
-%! Aplicaciones, capacidades, performance, etc
-
 A continuación se presenta una descripción de las herramientas de tecnología que se utilizarán para el desarrollo del proyecto.
 
 \subsection{Docker}
 
-Docker es un sistema para la creación y distribución de imágenes de software, principalmente orientado a servidores, que permite el crear un ambiente replicable agnóstico al sistema operativo del host. Es un estándar en la industria de desarrollo de software para crear sistemas complejos manteniendo una relativa simpleza al desplegar nuevas instancias \cite{rad2017dockerAnalysis}.
+Docker es un sistema para la creación y distribución de imágenes de software, principalmente orientado a servidores, que permite el crear un ambiente agnóstico al sistema operativo del host que además es replicable. Es un estándar en la industria de desarrollo de software para crear sistemas complejos manteniendo una relativa simpleza al desplegar nuevas instancias \cite{rad2017dockerAnalysis}.
 
 Docker utiliza un sólo Kérnel de linux para la creación de los contenedores y cada uno de los contenedores puede contener hasta \textit{n} procesos, lo que lo ayuda a reducir el tamaño de sistemas complejos como se muestra en la Figura \ref{fig:docker_diagrama}. Además de ofrecer una mayor flexibilidad y escalabilidad para tanto para realizar pruebas en máquinas de desarrollo como para distribuir y empaquetar nuevas instancias en ambientes de producción, se ha demostrado que el costo en eficiencia al sistema que lo ejecuta es mínimo comparado con otros métodos para la administración de sistemas complejos tales como las máquinas virtuales y el empaquetado en KVM \cite{rad2017dockerAnalysis, felter2015comparsionPerformance}.
 
@@ -63,28 +54,21 @@ Docker utiliza un sólo Kérnel de linux para la creación de los contenedores y
 	\label{fig:docker_diagrama}
 \end{figure}
 
-\subsection{Masonite ORM}
+\subsection{Lenguajes y \textit{frameworks}}
 
-Masonite ORM es una solución creada para python que permite la manipulación de sistemas relacionales de bases de datos creando una interfaz de código. Abstrae la complejidad de la manipulación de base de datos para convertirla en un modelo de clases con una interfaz simple para la edición de los datos. Tiene soporte nativo para transacciones, es compatible con MariaDB y está diseñado para ser incluido en proyectos complejos sin necesidad de incluir un framework completo \cite{masonite_2021}.
+Python es un lenguaje de programación de alto nivel, multipropósito, interpretado, que ha sido adoptado por la comunidad de desarrollo como una alternativa a diversos tipos de lenguajes debido a su facilidad de lectura y de introducción en el lenguaje. Es útil para el desarrollo web y de escritorio, además de que ha encontrado una fuerte comunidad en el desarrollo de sistemas de inteligencia artificial y comúnmente en el desarrollo de scripts con diferentes propósitos \cite{codecademy-python}.
 
-\subsection{FastAPI}
+JavaScript (JS) es un lenguaje de programación de alto nivel desarrollado originalmente como una forma comprehensiva de desarrollar elementos para sitios web, que ha evolucionado hasta convertirse en una herramienta utilizada para el desarrollo de diversos tipos de proyectos, tales como motores de bases de datos, suites de diseño, entre otros \cite{mozilla_javascript}. Este lenguaje es indispensable para el desarrollo de sistemas que requieran de interacciones web, además de ser útil como herramienta complementaria en otros tipos de proyectos.
 
-FastAPI es un framework para desarrollo de APIs REST para Python centrado en el desarrollo rápido con ayuda de las anotaciones estándar de Python. Además de ser uno de los frameworks de desarrollo más rápidos en su ejecución, permite el crear directamente documentación compatible con el estándar OpenAPI sin necesidad de librerías externas \cite{fastapi_ramirez_2020}. Todo esto lo convierte en un framework ideal para extender proyectos existentes en Python y con su permisiva licencia permite %* terminar esta oración
+Debido a la creciente complejidad de los sistemas computacionales, se suelen utilizar \textit{frameworks} o entornos de trabajo que nos permiten interactuar con sistemas de forma estandarizada, sin gastar grandes cantidades de tiempo realizando implementaciones propias de operaciones comunes. Los frameworks relevantes para este documento son los siguientes:
 
-\subsection{MariaDB}
+\begin{itemize}
+   \item \textbf{Masonite ORM} es una solución creada para Python que permite la manipulación de sistemas relacionales de bases de datos creando una interfaz de código. Abstrae la complejidad de la manipulación de base de datos para convertirla en un modelo de clases con una interfaz simple para la edición de los datos. Tiene soporte nativo para transacciones, es compatible con motores de bases de datos tales como MariaDB, PostgreSQL y SQLite, además está diseñado para ser incluido en proyectos complejos sin necesidad de incluir el framework al que pertenece \cite{masonite_2021}.
+   \item \textbf{FastAPI} es un framework para desarrollo de APIs REST para Python centrado en el desarrollo rápido con ayuda de las anotaciones estándar de Python. Además de ser uno de los frameworks de desarrollo más rápidos en su ejecución, permite el crear directamente documentación compatible con el estándar OpenAPI sin necesidad de librerías externas \cite{fastapi_ramirez_2020}. Todo esto lo convierte en un framework ideal para extender proyectos existentes en Python y con su permisiva licencia permite.
+   \item \textbf{VueJS} es una tecnología de desarrollo de interfaces para sitios web con un enfoque en el uso de componentes reactivos, lo cual hace menos complejo el manejo y manipulación de datos, así como la actualización de los mismos, debido a que no se tiene que manipular cada elemento manualmente sino que sólo se modifica la información de la que fue originado un elemento para que este sea redibujado \cite{vuejs_up}.
+\end{itemize}
 
-%! Quitar esto de aquí, cambiar a la selección de base de datos.
-
-MariaDB es un motor de base de datos relacional creado por el equipo original que desarrolló MySQL, es un motor que tiene como objetivo mantenerse completamente abierto y tiene una licencia de uso permisiva para su uso en ambientes comerciales y no comerciales \cite{mariadb_foundation_2019}. Tiene un rendimiento similar a MySQL en operaciones transaccionales, por lo cual es una excelente alternativa cuando se requiere un modelo de licencias permisivo \cite{mariadb_comparison}.
-
-%  TODO: Consider the use of a time series database.f
-
-% TODO \subsection{React} Sección de tecnología para front, probablemente React
-
-\subsection{VueJS}
-
-VueJS es una tecnología de desarrollo de sitios web con un enfoque en la reactividad de los componentes y \cite{vuejs_up}.
-
+Debido a la complejidad que supone el crear estándares para almacenar la información de forma eficiente para un caso de uso específico de cada proyecto, generalmente se suele optar por el utilizar sistemas de bases de datos previamente existentes. En este caso, se optó por MariaDB, el cual es un motor de base de datos relacional creado por el equipo original que desarrolló MySQL, es un motor que tiene como objetivo mantenerse completamente abierto y tiene una licencia de uso permisiva para su uso en ambientes comerciales y no comerciales \cite{mariadb_foundation_2019}. Tiene un rendimiento similar a MySQL en operaciones transaccionales, por lo cual es una excelente alternativa cuando se requiere un modelo de licencias permisivo \cite{mariadb_comparison}.
 
 % SNM (Simple management network)
 % OpenSource

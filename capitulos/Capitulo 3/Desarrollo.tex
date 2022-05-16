@@ -13,7 +13,8 @@ Los archivos resultantes de estas migraciones fueron tal como se muestran en el 
 \begin{minted}{bash}
 2021_08_03_052340_stations.py
 2021_10_14_162126_station_additional.py
-2021_11_13_020934_event_solutions.py            2022_04_03_003436_add_timestamps.py
+2021_11_13_020934_event_solutions.py
+2022_04_03_003436_add_timestamps.py
 2021_08_16_000028_station_events.py
 2021_10_29_035514_stations.py
 2022_03_25_013638_normalize_events_comments.py
@@ -24,6 +25,8 @@ Los archivos resultantes de estas migraciones fueron tal como se muestran en el 
 \end{listing}
 
 Si bien los modelos creados para la ejecución de este proyecto siguen los estándares de modelado de base de datos especificados en MasoniteORM, tal que al modelar la base de datos es posible obtener el mismo código que el implementado, una modificación importante al modelado de los datos es el uso de un mutador para traducir las direcciones IP a enteros y viceversa, como se muestra en el Listado \ref{lst:model-station-mutator}. Este mutador es accesado con un nombre alternativo al nombre del campo en el modelo, debido a que por limitaciones del sistema no es posible utilizar mutadores y accesores con el mismo nombre del campo objetivo.
+
+%! Indicar que con la figura [...], implica más código del que se muestra actualmente en el documento
 
 \begin{listing}
 \begin{minted}{python}

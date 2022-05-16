@@ -1,12 +1,10 @@
 \section{Diseño}
 
-Conforme a la metodología de desarrollo centrada en el usuario utilizada en este sistema, se decidió empezar por el desarrollo de un prototipo de alta fidelidad para el diseño del sistema, para posteriormente continuar con el diseño de la infraestructura y los sistemas necesarios para entregar el proyecto, con el objetivo de crear un sistema integral que pudiera satisfacer las necesidades del LCCA al mismo tiempo que cumpliera con los requisitos técnicos necesarios para cumplir los objetivos propuestos.
+Conforme a la metodología de desarrollo centrada en el usuario utilizada en este proyecto, se decidió empezar por el desarrollo de un prototipo de alta fidelidad para el diseño del sistema, para posteriormente continuar con el diseño de la infraestructura y los sistemas necesarios para entregar el proyecto, con el objetivo de crear un sistema integral que pudiera satisfacer las necesidades del LCCA al mismo tiempo que cumpliera con los requisitos técnicos necesarios para cumplir los objetivos propuestos.
 
 \subsection{Prototipado de la interfaz gráfica}
 
 Para el desarrollo de un prototipo rápido de la interfaz gráfica, se utilizó el software \textit{Figma}, esto debido a que es un software gratuito, sencillo de utilizar orientado al prototipado de interfaces de alta fidelidad. \textit{Figma} ofrece la capacidad de integrar diferentes \textit{frameworks} de diseño de interfaces, para crear un sistema de diseño coherente, consistente a través de todo un proyecto. Utilizando este software se decidió utilizar una plantilla de un tablero de control para una plataforma genérica.
-
-Los colores utilizados para el desarrollo de los prototipos, y posteriormente para el desarrollo de la totalidad del proyecto fueron; el color verde \texttt{\#09AB5D} como color principal de la interfaz, debido a su relación con el diseño actual del sitio de consulta de la información de las estaciones meteorológicas, y el color azul \texttt{\#16B2D4} como secundario por su contraste con el color verde y por su actual uso en el sitio existente del LCCA.
 
 Utilizando esta plantilla como base para el lenguaje de diseño de la aplicación, se realizó un prototipado de la interfaz propuesta para evaluar la posible utilidad de la misma, creando un prototipo inicial de alta fidelidad. La primer interfaz en prototiparse fue el tablero de control, después de algunas iteraciones con cambios menores, el prototipo quedó tal como en la Figura \ref{fig:prototype_main_interface}, cabe notar que esta interfaz gráfica tiene elementos en la barra lateral que no corresponden con el proyecto (tal como la sección de chat y otros similares), esto debido a que se dejaron ciertos elementos predefinidos de la plantilla original, para no romper con la estética del diseño.
 
@@ -21,7 +19,7 @@ En este prototipo de interfaz se tomaron en cuenta en varios factores, uno de el
 
 \pagebreak
 
-La interfaz para agregar una nueva estación al sistema contiene la información elemental que se requiere para registrar una nueva estación. En este caso, se compone de una dirección IP, un usuario, el método de conexión a la misma, el tipo de estación y el dispositivo por el que se accede a la misma. El prototipo realizado se puede observar en la Figura \ref{fig:prototype_add_station}
+La interfaz para agregar una nueva estación al sistema contiene la información elemental que se requiere para registrar una nueva estación. En este caso, se compone de una dirección IP, un usuario, el método de conexión a la misma, el tipo de estación y el dispositivo por el que se accede a la misma. El prototipo realizado se puede observar en la Figura \ref{fig:prototype_add_station}.
 
 \begin{figure}[!ht]
 	\centering
@@ -42,6 +40,21 @@ Posteriormente se creó el componente de la tercera parte importante del monitor
 \end{figure}
 
 \pagebreak
+
+\subsection{Diseño de logo e identidad gráfica}
+
+Los colores utilizados para el desarrollo de los prototipos, y posteriormente para el desarrollo de la totalidad del proyecto fueron; el color verde \texttt{\#09AB5D} como color principal de la interfaz, debido a su relación con el diseño actual del sitio de consulta de la información de las estaciones meteorológicas, y el color azul \texttt{\#16B2D4} como secundario por su contraste con el color verde y por su actual uso en el sitio existente del LCCA.
+
+El nombre del proyecto, surge de la combinación del griego \textit{meteoros} (que se encuentra en la atmósfera o en el cielo) y la palabra \textit{monitoreo}. Esto da como resultado la palabra \textit{meteoreo}. Este nombre fue utilizado para referirse a diversos elementos del proyecto de forma interna, tales como carpetas y archivos, así como para logos y demás documentación que se tuviera que generar del sistema.
+
+Con la ayuda de Alan J. Ovalle L., un diseñador con experiencia en proyectos de software, se procedió a limitar y diseñar un logo para el sistema. El logo tiene dos elementos principales. Una nube, significando la naturaleza centralizada y de recolección de información del sistema; y la veleta de un sensor de viento, esta es utilizada como una flecha para dar un sentido de orientación además de ser una referencia directa a las estaciones meteoreológicas.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=1\linewidth]{images/logos/evolution.png}
+	\caption{Evolución del logo de Meteoreo, ordenado cronológicamente.}
+	\label{fig:logo_evolution}
+\end{figure}
 
 \subsection{Diseño de base de datos}
 

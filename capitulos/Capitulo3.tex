@@ -1,41 +1,28 @@
-
 \chapter{Desarrollo del Proyecto}
-% [Este capítulo se considera el más importante al elaborar el proyecto de titulación. Se describe el procedimiento seguido para lograr el objetivo planteado. Se explica qué y cómo se hizo, además se debe de convencer de que los métodos o procedimientos usados fueron los más adecuados.
 
-% Deben detallarse los procedimientos, técnicas, métodos, metodologías y demás estrategias metodológicas requeridas para el proyecto.
-% ]
-
-En este capítulo se detallará el proceso de diseño e implementación que se realizó para desarrollar el proyecto de monitoreo de estaciones meteorológicas, así como las limitaciones técnicas para el desarrollo de
-
-%! Punto al final de todos los títulos de las imágenes
+En este capítulo se detallará el proceso de diseño e implementación que se realizó para desarrollar el proyecto de monitoreo de estaciones meteorológicas, así como las limitaciones técnicas que se encontraron durante el proceso.
 
 \section{Producto propuesto}
 
-Se creó un proyecto que permita monitorear el estado de los servicios de las estaciones meteorológicas, así como de la infraestructura en la que dependen, así como ofrecer un control limitado para la solución de problemas de forma remota.
-
+Se creó un sistema que permite monitorear el estado de los servicios de las estaciones meteorológicas del LCCA, y por consecuencia de la infraestructura en la que dependen, así como ofrecer un control limitado para la solución de problemas de forma remota.
 
 \noindent{El proyecto consiste de tres partes independientes:}
 
 \begin{itemize}
-   \item Un módulo para el monitoreo de el \textit{estatus} de las estaciones, que permita el cargar la información de las estaciones de una base de datos, para luego cargar los controladores específicos de cada estación basado en la infrormación existente de las mismas para después guardar el estado en el que se encuentran en una base de datos.
+   \item Un módulo para el monitoreo del estado de las estaciones, que permite el cargar la información de las estaciones de una base de datos, para luego cargar los controladores específicos de cada estación basado en la infrormación existente de las mismas para después guardar el estado en el que se encuentran en una base de datos.
 
-   \item Un API REST que tendrá el objetivo de proveer un acceso sencillo a la información de los sistemas de monitoreo, así como el de proveer una interfaz de control para las estaciones que permita la ejecución remota de comandos preestablecidos, desde cualquier punto con la autorización adecuada que haga una petición a la ruta correspondiente.
+   \item Un API REST que tiene el objetivo de proveer un acceso sencillo a la información de los sistemas de monitoreo, así como el de proveer una interfaz de control para las estaciones que permita la ejecución remota de comandos preestablecidos, desde cualquier punto con la autorización adecuada que haga una petición a la ruta correspondiente.
 
    \item Una interfaz gráfica, que permita el acceso a la información correspondiente de los sistemas de monitoreo, así como acceso a los reportes que se generen y permita capturar informes de solución de problemas de las estaciones para su posterior análisis.
-
 \end{itemize}
 
 \section{Metodología de desarrollo}
 
-%? Usar plantilla correcta para el capítulo 3 (Se debe hablar en pasado en capítulo 3)
-
 Para el desarrollo de este programa, se utilizó la estrategia de desarrollo ágil centrada en el usuario. En ella se combina la metodología de desarrollo ágil, la cuál tiene como características principales la entrega continua de resultados y la preferencia de sistemas funcionales sobre documentaciones de código robustas \cite{agile_manifesto}, con el diseño centrado en el usuario, el cuál tiene a los usuarios como objetivo principal para satisfacer las necesidades de requerimientos.
 
-%-? Imagen para ilustrar la metodología de desarrollo ágil
-%! Cambiar esta imagen al español
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=.75\linewidth]{images/agil.png}
+	\includegraphics[width=.75\linewidth]{images/diagrams/metodologia_agil.png}
 	\caption{Diagrama de metodología ágil.}
 	\label{fig:agile_methodology}
 \end{figure}
@@ -44,72 +31,61 @@ Debido a que la experiencia de usuario es uno de los factores que pueden separar
 
 %? X que se reporta, fue desarrollando utilizando la metodología X y consta de X fase y se realizó X cosa en cada fase. Cada una se explica de forma general.
 
-%? Quitar el siguiente texto, no corresponde a la metodología.
 
-En el respecto del lenguaje de programación, tomando en consideración que la red de monitoreo actual utiliza WeeWX para su integración con estaciones meteorológicas \cite{red_climatologica_uacj}, así como otros componentes del sistema de monitoreo existente, se pretende utilizar Python como lenguaje principal para el desarrollo del núcleo del sistema, sus módulos, y el API de consulta. Para el desarrollo de la interfaz gráfica del sitio web, se elegirá un framework ligero con Javscript. Todo esto se empaquetará en una imagen de Docker para permitir la replicación de la instancia con el mínimo esfuerzo posible.
+% Este proyecto se desarrolló de acuerdo a las actividades que se muestran en la Tabla \ref{Cronograma}.
 
-% \subsection{Programa de Actividades}
-%-? Esto está relacionado con la 3.2, debe ser una ssección de la 3.2
-
-%-? Esto es una tabla, no un diagrama. En la tabla X se muestra lo siguiente.
-Este proyecto se desarrolló de acuerdo a las actividades que se muestran en la Tabla \ref{Cronograma}.
-
-%! Debido a X y Y, las fases Z se hicieron en X fecha.
-
-{\fontfamily{lmss}\selectfont
-
-%! La tabla no es necesario que vaya en el reporte final
+% {\fontfamily{lmss}\selectfont
 
 %-? Las tablas deben tener descripción en la parte superior, y debe tener un punto final
 
-\begin{table}[H]
-   \centering
-   \caption{Actividades a diez meses.}
-   \label{Cronograma}
-   % \resizebox*{!}{12 cm}{
-   \begin{tabular}{|p{8cm}|c|c|c|c|c|c|c|c|c|c|}
-      \hline
-      ACTIVIDAD&\rotatebox{90}{Febrero 2021}
-      &\rotatebox{90}{Marzo}
-      &\rotatebox{90}{Abril}
-      &\rotatebox{90}{Mayo}
-      &\rotatebox{90}{Junio}
-      &\rotatebox{90}{Julio}
-      &\rotatebox{90}{Agosto}
-      &\rotatebox{90}{Septiembre}
-      &\rotatebox{90}{Octubre}
-      &\rotatebox{90}{Noviembre 2021}\\
-      \hline
-      Revisión de la Literatura& \checkmark & \checkmark  & \checkmark  &  &  &  &  &  & &  \\
-      \hline
-      Protocolo&\checkmark &\checkmark  &\checkmark  & \checkmark &  &  &  &  & &  \\
-      \hline
-      Selección de herramientas & &\checkmark  & \checkmark &  &  &  &  &  & &  \\
-      % \hline
-      % Documentación de propuesta&  &  & \checkmark & \checkmark &\checkmark  &\checkmark  &\checkmark  &\checkmark  &\checkmark  &\checkmark  \\
-      \hline
-      Diseño de la interfaz de usuario &  & \checkmark &  &  \checkmark & \checkmark &  &  &  &  &  \\
-      \hline
-      Documentación de requerimientos &  & \checkmark & \checkmark &  \checkmark & \checkmark &  &  &  &  &  \\
-      \hline
-      Diseño de la base de datos&  &  &  & \checkmark & \checkmark &  &  &  &  &  \\
-      \hline
-      Desarrollo del núcleo del sistema&  &  &  &  & \checkmark & \checkmark &  \checkmark &  &  &  \\
-      \hline
-      Desarrollo de la interfaz de usuario &  &  &  &  &  & \checkmark & \checkmark &  &  &  \\
-      \hline
-      Desarrollo e implementación del API REST&  &  &  &  &  & \checkmark & \checkmark & \checkmark &  &  \\
-      \hline
-      Integración con sistema de notificaciones &  &  &  &  &  &  & \checkmark & \checkmark &  &  \\
-      \hline
-      Compilación y entrega de documentación&  &  &  &  &  &  &  &  & \checkmark & \checkmark \\
-      \hline
+% \begin{table}[H]
+%    \centering
+%    \caption{Actividades a diez meses.}
+%    \label{Cronograma}
+%    % \resizebox*{!}{12 cm}{
+%    \begin{tabular}{|p{8cm}|c|c|c|c|c|c|c|c|c|c|}
+%       \hline
+%       ACTIVIDAD&\rotatebox{90}{Febrero 2021}
+%       &\rotatebox{90}{Marzo}
+%       &\rotatebox{90}{Abril}
+%       &\rotatebox{90}{Mayo}
+%       &\rotatebox{90}{Junio}
+%       &\rotatebox{90}{Julio}
+%       &\rotatebox{90}{Agosto}
+%       &\rotatebox{90}{Septiembre}
+%       &\rotatebox{90}{Octubre}
+%       &\rotatebox{90}{Noviembre 2021}\\
+%       \hline
+%       Revisión de la Literatura& \checkmark & \checkmark  & \checkmark  &  &  &  &  &  & &  \\
+%       \hline
+%       Protocolo&\checkmark &\checkmark  &\checkmark  & \checkmark &  &  &  &  & &  \\
+%       \hline
+%       Selección de herramientas & &\checkmark  & \checkmark &  &  &  &  &  & &  \\
+%       % \hline
+%       % Documentación de propuesta&  &  & \checkmark & \checkmark &\checkmark  &\checkmark  &\checkmark  &\checkmark  &\checkmark  &\checkmark  \\
+%       \hline
+%       Diseño de la interfaz de usuario &  & \checkmark &  &  \checkmark & \checkmark &  &  &  &  &  \\
+%       \hline
+%       Documentación de requerimientos &  & \checkmark & \checkmark &  \checkmark & \checkmark &  &  &  &  &  \\
+%       \hline
+%       Diseño de la base de datos&  &  &  & \checkmark & \checkmark &  &  &  &  &  \\
+%       \hline
+%       Desarrollo del núcleo del sistema&  &  &  &  & \checkmark & \checkmark &  \checkmark &  &  &  \\
+%       \hline
+%       Desarrollo de la interfaz de usuario &  &  &  &  &  & \checkmark & \checkmark &  &  &  \\
+%       \hline
+%       Desarrollo e implementación del API REST&  &  &  &  &  & \checkmark & \checkmark & \checkmark &  &  \\
+%       \hline
+%       Integración con sistema de notificaciones &  &  &  &  &  &  & \checkmark & \checkmark &  &  \\
+%       \hline
+%       Compilación y entrega de documentación&  &  &  &  &  &  &  &  & \checkmark & \checkmark \\
+%       \hline
 
-      Presentación y defensa de trabajo&  &  &  &  &  &  &  &  &  & \checkmark  \\
-      \hline
-   \end{tabular}
-\end{table}
-}
+%       Presentación y defensa de trabajo&  &  &  &  &  &  &  &  &  & \checkmark  \\
+%       \hline
+%    \end{tabular}
+% \end{table}
+% }
 
 \clearpage
 \input{capitulos/Capitulo 3/Analisis.tex}
@@ -119,3 +95,9 @@ Este proyecto se desarrolló de acuerdo a las actividades que se muestran en la 
 
 \clearpage
 \input{capitulos/Capitulo 3/Desarrollo.tex}
+
+\clearpage
+\input{capitulos/Capitulo 3/Pruebas.tex}
+
+\clearpage
+\input{capitulos/Capitulo 3/Despliegue-evaluacion-lanzamiento.tex}
