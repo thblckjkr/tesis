@@ -16,18 +16,18 @@
 \usepackage{blindtext}
 \usepackage[table,xcdraw]{xcolor}
 
-\usepackage{dirtytalk} % Nasty... \say
-
 % Code highligting
 \usepackage{float}
-\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage[chapter]{minted}
 
-\usepackage{minted}
+\usepackage{listings}
 \usemintedstyle{friendly}
 \setminted{baselinestretch=1.2}
 
 \usepackage[utf8]{inputenc}  % descomentar para teclado en español de Unix, Mac y posiblemente Windows
 \usepackage[T1]{fontenc} % this helps hyphenate Spanish vocabulary with acute accent
+\usepackage{dirtytalk} % Nasty... \say
 %\usepackage[latin1]{inputenc}  % descomentar para teclado en espa√±ol de Unix y posiblemente tambi√©n de Windows
 %\usepackage[applemac]{inputenc}  % descomentar para teclado en espa√±ol de Mac
 \usepackage[spanish]{babel}
@@ -39,7 +39,7 @@
 %\usepackage{urm}
 % datos de la tesis
 \title{SISTEMA DE MONITOREO Y CONTROL PARA ESTACIONES METEOROLÓGICAS}
-\author{142912}{Teo González Calzada }
+\author{142912}{Teo González Calzada}
 \authorb{}{}
 \director{Mtro.}{José Fernando Estrada Saldaña}
 \directorb{Dr.}{Felipe Adrián Vazquez Galvez}
@@ -54,8 +54,17 @@
 % comenta para automático:
 \termyear{\today}
 
+% Permite que los listings con minted y con lstlisting tengan los mismos números
+% https://tex.stackexchange.com/questions/292569/listings-internationalization-spanish-list-of-listings-and-caption-labels-not
+\makeatletter
+\AtBeginDocument{\let\c@lstlisting\c@listing}
+\makeatother
+
 \begin{document}
 \pagenumbering{roman}
+\renewcommand{\lstlistingname}{Listado}
+\renewcommand{\listingscaption}{Listado}
+\renewcommand\listoflistingscaption{Lista de listados}
 
 \maketitle     % esto hace las portadas
 \approvalpage  % esto hace la pagina de aprobaci√õn
@@ -67,13 +76,14 @@
 \setcounter{page}{6}
 \include{capitulos/Dedicatoria}
 
+\include{capitulos/Resumen}
+
 % los siguientes comandos producen √åndices.
 % tablas y figuras en el documento de la tesis
 \tableofcontents
 \listoffigures
-\listoftables
-
-\include{capitulos/Resumen}
+% \listoftables
+\listoflistings
 
 \setcounter{page}{1}
 
@@ -95,7 +105,7 @@
 
 % los cap√åtulos que se incluyan a partir de aqu√å aparecen
 % como ap√àndices
-\include{capitulos/ApendiceA}
+% \include{capitulos/ApendiceA}
 
 % estos comandos generan la bilbiograf√åa
 % La bibliograf√åa se obtiene de la base de datos

@@ -9,7 +9,7 @@ Debido a la naturaleza autónoma de las estaciones meteorológicas, y a que el h
 
 La conexión a las estaciones remotas se creó como un sistema modular de conexiones. Teniendo el objetivo de la extensibilidad como objetivo prioritario para el sistema de interacción con las interfaces.
 
-Cada sistema de conexión supone sus propios retos, si bien hay diversos métodos de conexión que podrían ser útiles para la conexión a las estaciones meteorológicas, se decidió enfocarse en la conexión vía SSH a las estaciones meteorológicas que poseen una RaspberryPI como *datalogger* y como medio de interfaz que se encuentran conectadas por medio de puerto serial a las mismas. Y de las estaciones meteorológicas Campbell, que poseen diversos protocolos de comunicación pero se decidió por utilizar el protocolo HTTP.
+Cada sistema de conexión supone sus propios retos, si bien hay diversos métodos de conexión que podrían ser útiles para la conexión a las estaciones meteorológicas, se decidió enfocarse en la conexión vía SSH a las estaciones meteorológicas que poseen una RaspberryPI como \textit{datalogger} y como medio de interfaz que se encuentran conectadas por medio de puerto serial a las mismas. Y de las estaciones meteorológicas Campbell, que poseen diversos protocolos de comunicación pero se decidió por utilizar el protocolo HTTP.
 
 Para la conexión a las estaciones RaspberryPi se considera lo siguiente:
 
@@ -36,6 +36,8 @@ Los servicios vitales que las estaciones requieren para proporcionar datos de ca
    \item Servicios del cliente de VPN para estaciones que así lo requieran.
    \item Servicio de copias de respaldo, como la base de datos (si aplica).
 \end{itemize}
+
+% TODO: Cambiar estos a los nuevos servicios monitoreados.
 
 Todos estos procesos y servicios es posible monitorearlos por medio de comandos Bash en la terminal de la estación, por lo tanto, se considera factible monitorearlos de forma adecuada todos para desarrollar este sistema.
 

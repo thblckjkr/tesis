@@ -18,7 +18,7 @@
 %% - numeraci\'on de p\'aginas m\'as correcta
 %% - la primera p'agina numerada es el prefacio, luego la simbolog\'{i}a (con n'umeros romanos)
 %% - se puede elegir entre doctor o maestro para generar las portadas y hoja de aprobaci'on
-%% - no hay cambios notables desde octubre de 2006 
+%% - no hay cambios notables desde octubre de 2006
 %%
 %% Version 1.0 - Julio 2005 / H'ector Rafael Orozco Aguirre
 %%
@@ -339,18 +339,19 @@
     \ifdoctor
     \textsc{Tesis de Doctorado/a en Ciencias de la Ingenier{\'{i}}a}\par
     \else
-    \vspace{3\@line}{Reporte Técnico de Investigación presentado por:}\par
+    \vspace{2\@line}{Reporte Técnico de Investigación presentado por:}\par
     \fi
         \vspace{1\@line}{\@author\  \@authorid\\\@authorb\ \@authorbid}\par
-    \vspace{2\@line}{Requisito  para la obtención del título de:}\par
+    \vspace{0\@line}{Requisito  para la obtención del título de:}\par
         \ifdoctor
         \textbf{Doctor/a en Ciencias de la Ingeniería}\par
         \else
         \vspace{1\@line}{INGENIERO EN SISTEMAS COMPUTACIONALES}\par
         \fi
     \vfill\textsc{Asesor:}\par
-        \vspace{3\@line}{\@directortitle\ \@director}\\
-        {\@directorbtitle\ \@directorb}\par
+        \vspace{0\@line}{\@directortitle\ \@director}\\
+        \textsc{Co-Asesor:} \\
+        \vspace{0\@line}{\@directorbtitle\ \@directorb}\par
   \end{center}
     \vspace{1\@line}\textrm{\@address}%\par
     \textrm{\hfill\@termyear}
@@ -370,14 +371,14 @@
 %  			\textsc{PROYECTO DE TITULACI\'O QUE PRESENTA:}\par
 %  			\fi
 %  			\textbf{\@author}\par
-%  			\vfill\textsc{Para obtener el grado de:}\par
+    %  			\vfill\textsc{Para obtener el grado de:}\par
 %  			\ifdoctor
 %  			\textbf{Doctor/a en Ciencias de la Ingenier{\'{i}}a}\par
 %  			\else
 %  			\textbf{Licenciado en Matem\'aticas}\par
 %  			\fi
 %  			\vfill\textsc{\@directorname}\par
-%  			\textbf{\@directortitle\ \@director}\par      
+%  			\textbf{\@directortitle\ \@director}\par
 %  		\end{singlespace}
 %  		\textrm{\@address. \hfill \@monthyear}
 %  	\end{center}
@@ -469,7 +470,7 @@ El\'ectrica y Computación\\
 Presente.-}\par
 \vspace{2\@line}
 
-Por medio de la presente me permito comunicarle que, después de haber realizado las asesorías correspondientes al reporte técnico \@title, del alumno \@author de la Licenciatura en Ingeniería en Sistemas Computacionales, considero que lo ha concluido satisfactoriamente, por lo que puede continuar con los trámites de titulación intracurricular.
+Por medio de la presente me permito comunicarle que, después de haber realizado las asesorías correspondientes al reporte técnico \@title, del alumno \@author~de la Licenciatura en Ingeniería en Sistemas Computacionales, considero que lo ha concluido satisfactoriamente, por lo que puede continuar con los trámites de titulación intracurricular.
 
 Sin más por el momento, reciba un cordial saludo.
 \par
@@ -477,13 +478,13 @@ Sin más por el momento, reciba un cordial saludo.
 Atentamente:
 \par\vspace{4\@line}
 \begin{tabular}{ccc}
-\@director	\\
+\@directortitle\ \@director	\\
 Profesor Investigador \\
 \end{tabular}
 \end{center}
-  
+
   \begin{singlespace}
-	  {Ccp:}\par
+	  {Ccp: Mtro. David Absalón Uruchurtu Moreno}\par
 	  Coordinador del Programa de Sistemas Computacionales\par
 	  {\@author}\par
 	  Archivo\vfill
@@ -513,7 +514,7 @@ Declaración de Originalidad
 \par
 \vspace{2\@line}
 
-Yo, \@author declaro que el material contenido en esta publicación fue elaborado con la revisión de los documentos que se mencionan en el capítulo de Bibliografía, y que la solución obtenida es original y no ha sido copiada de ninguna otra fuente, ni ha sido usada para obtener otro título o reconocimiento en otra institución de educación superior.
+Yo, \@author~declaro que el material contenido en esta publicación fue elaborado con la revisión de los documentos que se mencionan en el capítulo de Bibliografía, y que la solución obtenida es original y no ha sido copiada de ninguna otra fuente, ni ha sido usada para obtener otro título o reconocimiento en otra institución de educación superior.
 
 \par
 \begin{center}
@@ -555,12 +556,12 @@ Yo, \@author declaro que el material contenido en esta publicación fue elaborad
 \newenvironment{preface}
   {\chapter*{Prefacio}}
 
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
 % chapter headings
 \if@atstyle
   \def\@makechapterhead#1{%

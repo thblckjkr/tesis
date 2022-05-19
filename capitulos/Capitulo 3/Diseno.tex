@@ -42,12 +42,13 @@ Posteriormente se creó el componente de la tercera parte importante del monitor
 \pagebreak
 
 \subsection{Diseño de logo e identidad gráfica}
+% TODO: Mencionar nombres de colores, no representaciones hexa
 
 Los colores utilizados para el desarrollo de los prototipos, y posteriormente para el desarrollo de la totalidad del proyecto fueron; el color verde \texttt{\#09AB5D} como color principal de la interfaz, debido a su relación con el diseño actual del sitio de consulta de la información de las estaciones meteorológicas, y el color azul \texttt{\#16B2D4} como secundario por su contraste con el color verde y por su actual uso en el sitio existente del LCCA.
 
 El nombre del proyecto, surge de la combinación del griego \textit{meteoros} (que se encuentra en la atmósfera o en el cielo) y la palabra \textit{monitoreo}. Esto da como resultado la palabra \textit{meteoreo}. Este nombre fue utilizado para referirse a diversos elementos del proyecto de forma interna, tales como carpetas y archivos, así como para logos y demás documentación que se tuviera que generar del sistema.
 
-Con la ayuda de Alan J. Ovalle L., un diseñador con experiencia en proyectos de software, se procedió a limitar y diseñar un logo para el sistema. El logo tiene dos elementos principales. Una nube, significando la naturaleza centralizada y de recolección de información del sistema; y la veleta de un sensor de viento, esta es utilizada como una flecha para dar un sentido de orientación además de ser una referencia directa a las estaciones meteoreológicas.
+Con la ayuda de Alan J. Ovalle L., un diseñador con experiencia en proyectos de software, se procedió a limitar y diseñar un logo para el sistema. El logo tiene dos elementos principales. Una nube, significando la naturaleza centralizada y de recolección de información del sistema; y la veleta de un sensor de viento, esta es utilizada como una flecha para dar un sentido de orientación, además de ser una referencia directa a las estaciones meteorológicas.
 
 \begin{figure}[!ht]
 	\centering
@@ -72,7 +73,7 @@ Si bien habría sido posible el crear un campo extra en formato \textit{JSON} pa
 
 Otra consideración que se tomó para el diseñado de la base de datos, es el crear una estructura en la que fuera posible migrar datos de una instancia a otra del proyecto, para que dado el caso que se requiriera el cambio de instancia de unos datos (por ejemplo, en el caso de un cambio de posesión del equipo) pudiera ser mantenida la información recolectada de las estaciones. Para esto, se utilizó un \textit{uuid} como llave principal de la tabla de estaciones, lo que permite migrar la información de un sistema sin tener que realizar cambios al identificador único de las estaciones, que suele ser un dato de tipo entero sin signo autoincremental.
 
-Con todas estas consideraciones en mente, se creó una base de datos que corresponde con los contenidos que se muestran en el modelo entidad-relación que se puede obeservar en la Figura \ref{fig:diagrama_base_de_datos}. Para el diseño de esta base de datos, se optó por utilizar una normalización orientada al costo beneficio, sin perder la calidad de los datos obtenidos. Por ello se realizó un análisis informal con base en desiciones lógicas para la organización de la información en formas normales \cite{justifying_normalization_lee}.
+Con todas estas consideraciones en mente, se creó una base de datos que corresponde con los contenidos que se muestran en el modelo entidad-relación que se puede obeservar en la Figura \ref{fig:diagrama_base_de_datos}. Para el diseño de esta base de datos, se optó por utilizar una normalización orientada al costo beneficio, sin perder la calidad de los datos obtenidos. Por ello se realizó un análisis informal con base en decisiones lógicas para la organización de la información en formas normales \cite{justifying_normalization_lee}.
 
 Las relaciones de la información después de un proceso de normalización quedaron de la siguiente forma:
 
@@ -86,7 +87,7 @@ Las relaciones de la información después de un proceso de normalización queda
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=1\linewidth]{images/diagrams/database_diagram.png}
-	\caption{Modelo entidad-relación del proyecto meteoreo}
+	\caption{Modelo entidad-relación del proyecto meteoreo.}
 	\label{fig:diagrama_base_de_datos}
 \end{figure}
 
@@ -95,16 +96,14 @@ Las relaciones de la información después de un proceso de normalización queda
 \subsection{Configuración de ambiente de
 desarrollo}\label{configuraciuxf3n-de-ambiente-de-desarrollo}
 
-El ambiente de desarrollo que se seleccionó para la sección de python del proyecto fué seleccionado con el objetivo de proveer la mayor flexibilidad y portabilidad a corto y largo plazo, haciendo fácil la modificación posterior del proyecto por los que no estuvieron involucrados inicialmente, y sencillo de replicar para futuras investigaciones. Para lograr estos objetivos, se optó por realizar el proyecto con ayuda de las tecnologías de \textit{Docker}, debido a que permite realizar imágenes de proyectos de forma sencilla, y permite hacer contenedores multiplataforma que con una mínima configuración se vuelven útiles para el desarrollo.
+El ambiente de desarrollo que se seleccionó para la sección de Python del proyecto fué seleccionado con el objetivo de proveer la mayor flexibilidad y portabilidad a corto y largo plazo, haciendo fácil la modificación posterior del proyecto por los que no estuvieron involucrados inicialmente, y sencillo de replicar para futuras investigaciones. Para lograr estos objetivos, se optó por realizar el proyecto con ayuda de las tecnologías de Docker, debido a que permite realizar imágenes de proyectos de forma sencilla, y permite hacer contenedores multiplataforma que con una mínima configuración se vuelven útiles para el desarrollo.
 
 % Con la finalidad de tener un contenedor de desarrollo que pueda ser replicado con la mínima configuración se eligió la plataforma docker, por su amplia adopción y por las facilidades que ofrece para crear sistemas complejos que dependen de varios servicios sin tener que realizar configuraciones en el sistema que puedan ser perdidas al momento de cambiar a otro.
 
-Debido a la sencillez que el sistema de cnfiguración de contenedores \emph{docker compose} ofrece, se eligió para almacenar los parámetros de configuración de los contenedores en vez de crear comandos compatibles con docker para ello. Esto permite una fácil edición de los servicios y la aplicación de los mismos de una forma estandarizada que permite una comprensión más eficaz de los parámetros y de las dependencias.
+Debido a la sencillez que el sistema de cnfiguración de contenedores \emph{docker compose} ofrece, se eligió para almacenar los parámetros de configuración de los contenedores en vez de crear comandos compatibles con Docker para ello. Esto permite una fácil edición de los servicios y la aplicación de los mismos de una forma estandarizada que permite una comprensión más eficaz de los parámetros y de las dependencias.
 
-El archivo de configuración fué almacenado en la raíz del proyecto, con el nombre de \texttt{docker-compose.yml}  tal como el estándar de la utilería \texttt{docker-compose} sugiere, y este archivo tiene el contenido siguiente que se muestra en el Listado \ref{lst:docker-compose}. En este archivo, se especifica que se requiere de un servicio de \textit{MySQL}, el cuál fué utilizado para corroborar que el desarrollo era de utilidad con el motor seleccionado para producción, así como una referencia al archivo \textit{Docker} en el que se tiene el contenedor que se utilizará para el desarrollo. Además, se hace referencia a algunas variables, como \texttt{MYSQL\_DATABASE}, que son obtenidas de un archivo \texttt{\.env} estandarizado en la raíz del proyecto.
+El archivo de configuración fué almacenado en la raíz del proyecto, con el nombre de \texttt{docker-compose.yml}  tal como el estándar de la utilería \texttt{docker-compose} sugiere, y este archivo tiene el contenido siguiente que se muestra en el Listado \ref{lst:docker-compose}. En este archivo, se especifica que se requiere de un servicio de MariaDB, el cuál fué utilizado para corroborar que el desarrollo era de utilidad con el motor seleccionado para producción, así como una referencia al archivo \textit{Docker} en el que se tiene el contenedor que se utilizará para el desarrollo. Además, se hace referencia a algunas variables, como \texttt{MYSQL\_DATABASE}, que son obtenidas de un archivo \texttt{\.env} estandarizado en la raíz del proyecto.
 
-%! TODO: INSERTAR Referencia de archivo docker-compose en el anterior parrafito
-% Cambiar líneas de configuracion por su relativo en texto y explicarlo en el párrafo
 \begin{listing}
 \begin{minted}{yaml}
 version: '3.3'
@@ -119,9 +118,9 @@ services:
     # ...
     networks:
       - meteoreo-backend
-  mysql:
-    image: mysql
-    container_name: meteoreo-mysql
+      mariadb:
+    image: mariadb
+    container_name: meteoreo-mariadb
     environment:
       MYSQL_DATABASE: '${MYSQL_DATABASE}'
       MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
@@ -133,17 +132,16 @@ services:
       - '3306:3306'
     networks:
       - meteoreo-backend
+    restart: always
 networks:
   meteoreo-backend:
     driver: bridge
 \end{minted}
-\caption{Archivo docker-compose}
+\caption{Archivo docker-compose.}
 \label{lst:docker-compose}
 \end{listing}
 
-El archivo de \textit{docker-compose} tiene una dependencia con un archivo de Docker, que se pretende que facilite la adición de librerías adicionales al proyecto en la posteridad. Actualmente, extiende la imagen existente de \textit{tiangolo}, el proyecto \textit{Uvicorn-Gunicorn-Fastapi}. Esta imagen fue utilizada como base debido a su increíble flexibilidad para el desarrollo de proyectos en FastApi, sus optimizaciones automáticas para el balanceo de cargas entre diversos procesos creados automáticamente (ya que python es monoproceso) y además, por ser una imagen altamente mantenida por la comunidad, debido a su popularidad. En este archivo también se especifíca el instalar la librería \texttt{inteutils-ping} debido a que el proyecto dependerá de realizar pruebas por \texttt{ping} para revisar la conectividad con las estaciones antes de intentar realizar una conexión y la imagen base no tenía esta librería, el archivo final quedó como se muestra en el Listado \ref{lst:dockerfile}.
-
-%! TODO: Insertar referencia de dockerfile en el anterior parrafito
+El archivo de \textit{docker-compose} tiene una dependencia con un archivo de Docker, que se pretende que facilite la adición de librerías adicionales al proyecto en la posteridad. Actualmente, extiende la imagen existente de Sebastián Ramírez "tiangolo", el proyecto \textit{uvicorn-gunicorn-fastapi}. Esta imagen fue utilizada como base debido a su increíble flexibilidad para el desarrollo de proyectos en FastApi, sus optimizaciones automáticas para el balanceo de cargas entre diversos procesos creados automáticamente (ya que python es monoproceso) y además, por ser una imagen altamente mantenida por la comunidad, debido a su popularidad. En este archivo también se especifíca el instalar la librería \texttt{inteutils-ping} debido a que el proyecto dependerá de realizar pruebas por \texttt{ping} para revisar la conectividad con las estaciones antes de intentar realizar una conexión y la imagen base no tenía esta librería, el archivo final quedó como se muestra en el Listado \ref{lst:dockerfile}.
 
 \begin{listing}[h]
 \begin{minted}{dockerfile}
@@ -156,7 +154,7 @@ RUN apt-get update && apt-get install -y \
 
 CMD [ "/start-reload.sh" ]
 \end{minted}
-\caption[Dockerfile]{Archivo Dockerfile}
+\caption[Dockerfile]{Archivo Dockerfile.}
 \label{lst:dockerfile}
 \end{listing}
 
@@ -164,7 +162,7 @@ El editor de código seleccionado para el desarrollo del proyecto es Visual Stud
 
 En este archivo se especifica un nombre para identificar el ambiente de desarrollo que sea reconocible por el desarrollador, la localización del archivo que describe el contenedor, y una lista de extensiones para el editor de código. Entre las más importantes se encuentra \emph{pylance} que permite  realizar el formato automático de códgo con pep8 y \emph{magicpython} una adición al editor de código que provee un motor de autocompletación para python, las demás siendo preferencias personales útiles para agilizar el desarrollo del proyecto.
 
-%! TODO: Insertar referencia del archivo devcontainer en el parrafito anterior
+%TODO: Referencias de este arhcivo
 
 \begin{minted}{json}
 {
@@ -189,4 +187,4 @@ En este archivo se especifica un nombre para identificar el ambiente de desarrol
 }
 \end{minted}
 
-Para el desarrollo de la sección de la interfaz de web del proyecto, se instaló en la máquina de desarrollo NPM versión 14.8.1, debido a que era la última versión \textit{LTS} (Soporte a largo plazo, por sus siglas en inglés) disponible, y el sistema de manejo de dependencias \textit{yarn} debido a las ventajas que ofrece sobre \textit{npm}, tales como mayor velocidad de instalación de paquetes y caché multiproyecto. No se vió como un elemento necesario el intergrar Docker o algún otro tipo de tecnología de contenedores para el proyecto de frontend, debido a la ubicuidad de las herramientas y la simpleza de instalación y de mantenimiento de las mismas.
+Para el desarrollo de la sección de la interfaz de web del proyecto, se instaló en la máquina de desarrollo NPM versión 14.8.1, debido a que era la última versión con soporte a largo plazo (LTS por sus siglas en inglés) disponible, y el sistema de manejo de dependencias \textit{yarn} debido a las ventajas que ofrece sobre \textit{npm}, tales como mayor velocidad de instalación de paquetes y caché multiproyecto. No se vió como un elemento necesario el intergrar Docker o algún otro tipo de tecnología de contenedores para el desarrollo, debido a la ubicuidad de las herramientas y la simpleza de instalación y de mantenimiento de las mismas en un ambiente común compartido.

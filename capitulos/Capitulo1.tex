@@ -29,14 +29,16 @@ Las limitaciones de Nagios vienen a raíz de su implementación orientada a sist
 
 Otra de las restricciones del sistema Nagios es que al ser un sistema de monitoreo limita la capacidad de acción de los usuarios ante un caso que lo requiera. Si bien es posible el realizar acciones por medio de scripts creados al momento de la configuración de Nagios, estos requieren una configuración extensa y compleja \cite{nagios_service_restart}. Además, el sistema basado en eventos impide la interacción directa de un usuario para la respuesta de forma directa desde la consola de administración, requiriendo que el usuario tenga un conocimiento del método de conexión, así como la información necesaria para realizar una tarea trivial como es el reiniciar un servicio.
 
-Actualmente, el sistema de monitoreo de calidad del aire y climatológico del Laboratorio de Climatología y Calidad del Aire (LCCA, por sus siglas) en la Universidad Autónoma de Ciudad Juárez, engloba varios de los retos antes descritos, ya que a pesar de la baja densidad de estaciones meteorológicas, comprende una variedad importante de las mismas. Esta compuesta por prototipos conectados por medio de redes virtuales privadas, monitoreados remotamente \cite{red_climatologica_uacj}, estaciones de diferentes proveedores, siendo monitoreadas local y externamente, así como estaciones remotas con routers dentro de la red local de la universidad (véase la Figura \ref{fig:current_network}). Lo que provoca que sea un reto monitorearlas adecuadamente debido a la variedad de sus componentes.
+Actualmente, el sistema de monitoreo de calidad del aire y climatológico del Centro Climatológico y de Calidad del Aire (CECATEV) en la Universidad Autónoma de Ciudad Juárez, engloba varios de los retos antes descritos, ya que a pesar de la baja densidad de estaciones meteorológicas, comprende una variedad importante de las mismas. Esta compuesta por prototipos conectados por medio de redes virtuales privadas, monitoreados remotamente \cite{red_climatologica_uacj}, estaciones de diferentes proveedores, siendo monitoreadas local y externamente, así como estaciones remotas con routers dentro de la red local de la universidad (véase la Figura \ref{fig:current_network}). Lo que provoca que sea un reto monitorearlas adecuadamente debido a la variedad de sus componentes.
 
 %* Los puertos no están expuestos si la conexión se realiza por NAT.
+
+%! (Centro de Ciencias Atmosféricas y Tecnologías Verdes)
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=.80\linewidth]{images/diagrams/red_lcca.drawio.png}
-	\caption{Diagrama de red de LCCA UACJ.}
+	\caption{Diagrama de red de CECATEV UACJ.}
 	\label{fig:current_network}
 \end{figure}
 
@@ -74,21 +76,13 @@ Creando un sistema de monitoreo eficaz para las estaciones meteorológicas se pr
 
 Además, haciendo el sistema de monitoreo un proyecto público y compatible con soluciones existentes, se pretende el ayudar a mejorar la calidad y confiabilidad de las redes de monitoreo meteorológico, de calidad del aire y climatológico al rededor del mundo.
 
-Este proyecto tiene un impacto tecnológico, debido a que se plantea el desarrollar un sistema en el que se puedan integrar diversos datos que ayuden a generar un estado comprehensible de la calidad de la información de las redes meteorológicas que monitorea.
+Este proyecto tiene un impacto tecnológico, debido a que se plantea el desarrollar un sistema en el que se puedan integrar diversos datos que ayuden a generar un estado comprehensible de la calidad de la información de las redes meteorológicas que monitorea. Con respecto al impacto económico, el proyecto le permitirá identificar y solucionar los problemas que ocurrieran en las diferentes estaciones sin la  necesidad de desplazarse para corregir la solución, propiciando un uso más eficiente de los recursos humanos y económicos de CECATEV cuyo financiamiento principal para la operación son recursos públicos.
 
-%* Esta parte se escucha ambiciosa, sobre todo porque necesito evidencia para justficarlo.
-
-%! Impacto en la justificación! Que impacto tiene mi proyecto?
-%! Indicar el porqué
-
-%! Series contínuas de datos de calidad
-% Cambio climático, sequías. A pesar de que ya hay muchos datos (por ejemplos satelitales), no tenemos bases de datos con series de tiempo de buena calidad de series de los datos. Y esto tiene que ver con la cada vez más limitada capacidad de mantener la red y darle mantenimiento. A veces no hay los recusos para ir físicamente, el tiempo, o la información de los datos.
-
-% Se tarda mucho tiempo en visitar las estaciones, hacer un uso extensivo de las capacidades tecnológicas actuales.
+El impacto ecológico del proyecto es indirecto ya que el personal de CECATEV podrá dedicar mayor tiempo al tratamiento de la información generada por las estaciones y no en desplazarse a las diferentes estaciones para identificar los problemas y solucionarlos.
 
 \section{Alcances y limitaciones}
 
-Entre los alcances que se pretendían lograr con el proyecto, se contemplaron los siguientes:
+\noindent Entre los alcances que se pretendían lograr con el proyecto, se contemplaron los siguientes:
 
 \begin{itemize}
 

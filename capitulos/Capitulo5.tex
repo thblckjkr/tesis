@@ -11,6 +11,8 @@ En este documento se reporta el desarrollo de un sistema de monitoreo y control 
 
 %* Objetivo general entre comillas, cita textual.
 
+Con el sistema presntado en este documento, se obtiene que es posible realizar una recolección de datos de esatciones meteorológicas y generar un sistema para la solución de problemas de forma remota. %! TODO: Terminar.
+
 Con respecto al objetivo general del proyecto, que es el desarrollo de un sistema que permita un monitoreo continuo de estaciones meteorológicas, para proveer un mejor mantenimiento preventivo y correctivo, se logró de manera exitosa y funcional en resolver el problema descrito en la sección 1.2, conforme a los resultados presentados en el capítulo 4.
 
 
@@ -39,33 +41,26 @@ Con la realización del proyecto se lograron los siguientes resultados:
 
 \end{itemize}
 
+% \section{Con respecto al futuro del proyecto}
 
+% Por cuestiones de que las siguientes funcionalidades se encuentran fuera del alcance de este proyecto, se recomienda que sean implementadas posteriormente:
 
-\section{Con respecto al futuro del proyecto}
-
-Por cuestiones de que las siguientes funcionalidades se encuentran fuera del alcance de este proyecto, se recomienda que sean implementadas posteriormente:
-
-\begin{itemize}
-   \item El utilizar un sistema automatizado para la solución de incidentes de fallos en las estaciones meteorológicas.
-   \item Generar reportes automatizados de calidad de datos y de líneas de tiempo de las estaciones con la información recolectada.
-   \item El desarrollo de un sistema de predicción de tendencias de errores, que ayude a la toma de decisiones de mantenimiento preventivo y correctivo.
-\end{itemize}
-
-Se recomienda el automatizar
-
-
-
-Tomar los componentes que fueron creados con tailwind y vue y realmente hacer uso de lasa clases de componentes e información.
-
-
-
-
-
-% [La forma más simple de presentar las conclusiones es enumerándolas consecutivamente, pero podrías optar por recapitular brevemente el contenido del artículo, mencionando someramente su propósito, los métodos principales, los datos más sobresalientes y la contribución más importante de la investigación. La sección de conclusiones no debe repetir innecesariamente el contenido del resumen.]
+% \begin{itemize}
+%    \item El utilizar un sistema automatizado para la solución de incidentes de fallos en las estaciones meteorológicas.
+%    \item Generar reportes automatizados de calidad de datos y de líneas de tiempo de las estaciones con la información recolectada.
+%    \item El desarrollo de un sistema de predicción de tendencias de errores, que ayude a la toma de decisiones de mantenimiento preventivo y correctivo.
+% \end{itemize}
 
 \section{Recomendaciones para futuras investigaciones}
 
-Debido a que las siguientes
+% Debido a que las siguientes
+El sistema de monitoreo de estaciones Meteoreo fué concebido como un punto de partida para más avances en el mantenimiento y monitoreo de estaciones meteorológicas. La capacidad de extensión y documentación del código tienen la arquitectura necesaria para permitir modificaciones sin alterar el funcionamiento fundamental del programa.
+
+Actualmente, el sistema recolecta información de las estaciones meteorológicas y se permite realizar acciones en base a la información presentada, sin embargo, requiere de interacción para acciones que podrían ser automáticas. Esto abre un área de oportunidad para utilizar la información que el sistema recaba para automatizar la ejecución de las soluciones conforme a los servicios definidos, e incluso, el resolver de forma automática los errores no reconocidos en las estaciones, ya sea con una inteligencia artificial o con un sistema de pesos para una serie predefinida de soluciones comúnes.
+
+También se recomienda el realizar un sistema de notificaciones más versátil que pueda alertar a los diferentes involucrados en la administración de las estaciones, ya que actualmente se envía una alerta de error a todos los involucrados en el sistema sin discriminar por parámetros como tipo de falla, o localización de la estación.
+
+% Para el CECATEV se recomienda el desarrollar los controladores adecaudos para las nuevas estaciones cuando la infraestructura actual quede descontinuada, para así continuar asegurando una mayor calidad de datos.
 
 %! Recomendaciones al laboratorio para cuando la infraestructura actual quede descontinuada.
 
