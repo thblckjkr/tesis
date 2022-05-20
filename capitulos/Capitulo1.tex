@@ -29,7 +29,7 @@ Las limitaciones de Nagios vienen a raíz de su implementación orientada a sist
 
 Otra de las restricciones del sistema Nagios es que al ser un sistema de monitoreo limita la capacidad de acción de los usuarios ante un caso que lo requiera. Si bien es posible el realizar acciones por medio de scripts creados al momento de la configuración de Nagios, estos requieren una configuración extensa y compleja \cite{nagios_service_restart}. Además, el sistema basado en eventos impide la interacción directa de un usuario para la respuesta de forma directa desde la consola de administración, requiriendo que el usuario tenga un conocimiento del método de conexión, así como la información necesaria para realizar una tarea trivial como es el reiniciar un servicio.
 
-Actualmente, el sistema de monitoreo de calidad del aire y climatológico del Centro Climatológico y de Calidad del Aire (CECATEV) en la Universidad Autónoma de Ciudad Juárez, engloba varios de los retos antes descritos, ya que a pesar de la baja densidad de estaciones meteorológicas, comprende una variedad importante de las mismas. Esta compuesta por prototipos conectados por medio de redes virtuales privadas, monitoreados remotamente \cite{red_climatologica_uacj}, estaciones de diferentes proveedores, siendo monitoreadas local y externamente, así como estaciones remotas con routers dentro de la red local de la universidad (véase la Figura \ref{fig:current_network}). Lo que provoca que sea un reto monitorearlas adecuadamente debido a la variedad de sus componentes.
+Actualmente, el sistema de monitoreo de calidad del aire y climatológico del Centro de Ciencias Atmosféricas y Tecnologías Verdes (CECATEV) en la Universidad Autónoma de Ciudad Juárez, engloba varios de los retos antes descritos, ya que a pesar de la baja densidad de estaciones meteorológicas, comprende una variedad importante de las mismas. Esta compuesta por prototipos conectados por medio de redes virtuales privadas, monitoreados remotamente \cite{red_climatologica_uacj}, estaciones de diferentes proveedores, siendo monitoreadas local y externamente, así como estaciones remotas con routers dentro de la red local de la universidad (véase la Figura \ref{fig:current_network}). Lo que provoca que sea un reto monitorearlas adecuadamente debido a la variedad de sus componentes.
 
 %* Los puertos no están expuestos si la conexión se realiza por NAT.
 
@@ -42,7 +42,7 @@ Actualmente, el sistema de monitoreo de calidad del aire y climatológico del Ce
 	\label{fig:current_network}
 \end{figure}
 
-Desafortunadamente, la infraestructura de la red actual del LCCA no cuenta con un sistema de monitoreo para el registro automático de problemas de las estaciones meteorológicas de la cual pueda ser derivada información de la calidad de los datos meteorológicos así como un estado de salud de las estaciones. Esto, dificulta el uso de forma adecuada de la información existente e impide la generación de reportes de calidad de la información.
+Desafortunadamente, la infraestructura de la red actual de CECATEV no cuenta con un sistema de monitoreo para el registro automático de problemas de las estaciones meteorológicas de la cual pueda ser derivada información de la calidad de los datos meteorológicos así como un estado de salud de las estaciones. Esto, dificulta el uso de forma adecuada de la información existente e impide la generación de reportes de calidad de la información.
 
 \section{Definición del problema}
 
@@ -55,7 +55,7 @@ Desarrollar un sistema de monitoreo y control de estaciones meteorológicas para
 \subsection{Objetivos específicos}
 
 \begin{itemize}
-   \item Desarrollar un sistema central para coordinar y recolectar los datos del estado de las estaciones.
+   \item Desarrollar un sistema modular central para coordinar y recolectar los datos del estado de las estaciones.
 
    \item Diseñar un API REST para consultar el estado de las estaciones meteorológicas.
 

@@ -198,3 +198,11 @@ Una vez que genera la alerta, termina la ejecuci'on
 
 
 Crear una imagen de donde fue "instalado" el proyecto., similar al mapa de la ciudad que aparece en el tríptico UACJ.
+
+
+
+
+Tareas proometidas en el documento no implementadas:
+
+- [X] Refrescar el dashboard cada X minutos para actualizar la información que se muestra de forma reactiva
+- [X] Agregar filtros a la vista de la bitácora

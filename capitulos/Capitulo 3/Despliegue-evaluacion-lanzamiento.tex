@@ -21,18 +21,20 @@ Después de haberse instalado Docker, se instaló la utilería \textit{docker-co
 
 El servicio de monitoreo se decidió ejecutar en la misma imágen de Docker como un proceso manual, esto debido a que se podría facilitar el proceso de monitoreo y actualización. Por lo tanto, se dejó el proceso ejecutando en una ventana de \textit{tmux}, el cual permite crear terminales virtuales para ejecutar procesos sin afectar la terminal principal. Una nota importante es que el sistema se configuró para utilizar una instancia local de la base de datos MariaDB, esto debido a que el sistema que se desplegó será utilizado temporalmente para reivsar la estabilidad del mismo.
 
-Como resultado de la configuración seleccionada es posible actualizar el sistema con una versión nueva con facilidad, como se puede observar en la Figura \ref{fig:uploading-web}, debido a que sólo es necesario actualizar el repositorio de Git para que los cambios se vean reflejados. Esto, a pesar de que es un proceso manual, agiliza el despliegue de nuevas versiones que solucionen problemas sin afectar el tiempo de respuesta al usuario final.
+Como resultado de la configuración seleccionada es posible actualizar el sistema con una versión nueva con facilidad, como se puede observar en la Figura \ref{fig:updating-api}, debido a que sólo es necesario actualizar el repositorio de Git para que los cambios se vean reflejados. Esto, a pesar de que es un proceso manual, agiliza el despliegue de nuevas versiones que solucionen problemas sin afectar el tiempo de respuesta al usuario final.
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.9\linewidth]{images/screenshots/meteoreo-api-update.png}
 	\caption{Actualización del API y servicio de monitoreo.}
-	\label{fig:uploading-web}
+	\label{fig:updating-api}
 \end{figure}
 
 \section{Evaluación}
 
-Para facilitar la evaluación de la calidad de la información del sistema, a este se le configuró el nivel de información en las variables de entorno con el nivel \texttt{INFO}, el cuál es el nivel mas informativo. Este nivel de información es útil para la verificación de un correcto funcionamiento del sistema, ya que contiene información detallada de los servicios monitoreados, respuestas de sistemas externos, así como información sobre la autenticación que se realiza, un ejemplo se de esta información se puede ver en la Figura \ref{fig:meteoreo-api-monitoring}.
+El proyecto fue desplegado en los servidores destinados a su lanzamiento final durante 20 días, mientras se realizaba un monitoreo contínuo de las estaciones meteorológicas así como se recolectaba la información. Durante este periodo, se realizó un proceso de mejora contínua en la que se realizaron ajustes a la visualización de la información.
+
+Además, para facilitar la evaluación de la calidad de la información del sistema, a este se le configuró el nivel de información en las variables de entorno con el nivel \texttt{INFO}, el cuál es el nivel mas informativo. Este nivel de información es útil para la verificación de un correcto funcionamiento del sistema, ya que contiene información detallada de los servicios monitoreados, respuestas de sistemas externos, así como información sobre la autenticación que se realiza, un ejemplo se de esta información se puede ver en la Figura \ref{fig:meteoreo-api-monitoring}.
 
 \begin{figure}[!ht]
 	\centering
@@ -41,6 +43,10 @@ Para facilitar la evaluación de la calidad de la información del sistema, a es
 	\label{fig:meteoreo-api-monitoring}
 \end{figure}
 
+\clearpage
+
 \section{Lanzamiento}
 
-Este proyecto es de código libre, y fue publicado en Github bajo la licencia GPL-3.0. El API junto con el servicio de monitoreo puede encontrarse en el repositorio \href{https://github.com/thblckjkr/meteoreo-api}{thblckjkr/meteoreo-api} y el código de la interfaz web puede encontrarse en \href{https://github.com/thblckjkr/meteoreo-web}{thblckjkr/meteoreo-web}. Los hashes de commit específicos que se utilizaron para la muestra final bajo la que fué evaluada en este proyecto, es el \href{https://github.com/thblckjkr/meteoreo-api/tree/540ffcf1a00a6ad57887ec69a6095b5636a29806}{540ffc} para el repositorio meteoreo-api y el \href{https://github.com/thblckjkr/meteoreo-web/tree/08f56ba9712b3392244634dcbf0060c205d13f4f}{08f56ba} para meteoreo-web. Por último, la interfaz web es accesible desde el URL \href{http://cecatev.uacj.mx/meteoreo}{cecatev.uacj.mx/meteoreo}.
+Este proyecto es de código libre, y fue publicado en Github bajo la licencia GPL-3.0. El API junto con el servicio de monitoreo puede encontrarse en el repositorio \href{https://github.com/thblckjkr/meteoreo-api}{thblckjkr/meteoreo-api} y el código de la interfaz web puede encontrarse en \href{https://github.com/thblckjkr/meteoreo-web}{thblckjkr/meteoreo-web}. Los hashes de commit específicos que se utilizaron para la muestra final bajo la que fué evaluada en este proyecto, es el \href{https://github.com/thblckjkr/meteoreo-api/tree/540ffcf1a00a6ad57887ec69a6095b5636a29806}{540ffcf} para el repositorio meteoreo-api y el \href{https://github.com/thblckjkr/meteoreo-web/tree/ca3794735bb03d2b9ca7fad49f53bf0b369fbe92}{ca37947} para meteoreo-web. Por último, la interfaz web es accesible desde el URL \href{http://cecatev.uacj.mx/meteoreo}{cecatev.uacj.mx/meteoreo}.
+
+Una copia de estos repositorios se encuentra en la instancia de Gitlab propia de la Universidad Autónoma de Ciudad Juárez, para permitir un mayor control del código alojado en los servidores así como una mayor facilidad para la futura modificación del repositorio por los interesados. La copia de estos respositorios se encuentra en la ruta \href{https://git.uacj.mx/meteoreo/meteoreo-api/}{meteoreo/meteoreo-api} y en \href{https://git.uacj.mx/meteoreo/meteoreo-web/}{meteoreo/meteoreo-web}.

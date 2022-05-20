@@ -160,7 +160,7 @@ El módulo de monitoreo tiene como objetivo principal el observar la informació
 
 El módulo de monitoreo después toma la información obtenida para ser guardada en base de datos y generar los eventos conforme a la configuración del proyecto. Cabe notar que sólo se recaba la información de los servicios que han sido detectados con algún problema, esto se hace para cumplir con el objetivo de maximizar el espacio de la base de datos discriminando la información que no se considera relevante.
 
-Cuando uno de estos eventos es generado, se al sistema de notificaciones que se integró. Este sistema de notificaciones consiste de un archivo de configuración para obtener las credenciales necesarias para realizar operaciones, así como una clase interface que instancia el SDK del serivicio seleccionado ,en este caso OneSignal. La elección de OneSignal se debió a su previo uso en la Universidad Autónoma de Ciudad Juárez, así como por la existencia de una librería estándar en el lenguaje para interactuar con el servicio.
+Cuando uno de estos eventos es generado, se al sistema de notificaciones que se integró. Este sistema de notificaciones consiste de un archivo de configuración para obtener las credenciales necesarias para realizar operaciones, así como una clase interface que instancia el SDK del serivicio seleccionado, en este caso OneSignal. La elección de OneSignal se debió a su previo uso en la Universidad Autónoma de Ciudad Juárez, así como por la existencia de una librería estándar en el lenguaje para interactuar con el servicio.
 
 Estos procesos además de ser documentados en el presente documento, fueron documentados en el código con el estándar de \textit{docstrings} de Python, debido a esto fué posible generar una documentación automática del proyecto para una fácil navegación. Esta documentación fué generada con la libería \textit{pdoc} y la documentación que puede ser observada en la Figura \ref{fig:docs_station_reporter_lib}, fué generada ejecutando el comando \texttt{pdoc generate --html} en la estación de desarrollo.
 
@@ -204,13 +204,14 @@ service = {
 
 En el caso del servicio WeeWX, el encargado de recolectar la información de las estaciones con la ayuda de diversos métodos específicos, sólo es necesario verificar que el proceso que recolecta la información esté funcionando. Este proceso está configurado como un servicio de Linux, por lo cual es posible obtener su estado por medio de la herramienta de sistema \texttt{systemd}.
 
-Entre las fallas comunes de este servicio, podemos encontrar una sobrecarga de la estación ocurrida cuando el servicio hace demasiados intentos de recolección al equipo destino sin enviar los terminadores adecuados. Para solucionar este problema, es necesario conectarse con la herramienta destinada a la conexión con los dispositivos y ejecutar una limpieza de memoria, con el comando \texttt{wee\_device --clear-memory}. Por último, cuando no sea posible ejecutar este comando por una conexión previa no finalizada al sistema, se desconecta forzozamente la conexión con las herramientas que Linux proporciona. Este proceso mencionado, se definió en el sistema de monitoreo de la forma que se muestra en el Listado \ref{lst:weewx_service}
+Entre las fallas comunes de este servicio, podemos encontrar una sobrecarga de la estación ocurrida cuando el servicio hace demasiados intentos de recolección al equipo destino sin enviar los terminadores adecuados. Para solucionar este problema, es necesario conectarse con la herramienta destinada a la conexión con los dispositivos y ejecutar una limpieza de memoria, con el comando \texttt{wee\_device --clear-memory}. Por último, cuando no sea posible ejecutar este comando por una conexión previa no finalizada al sistema, se desconecta forzozamente la conexión serial con las herramientas que Linux proporciona. Este proceso mencionado, se definió en el sistema de monitoreo de la forma que se muestra en el Listado \ref{lst:weewx_service}
+
+%! Mencionar que la conexión es por puerto serial a la estación Meteorológica Davis
 
 \begin{listing}
 \begin{minted}[%
    breaklines
 ]{python3}
-# Check the WeeWX service
 service = {
     "command": "systemctl status weewx",
     "stdout": "Active: active (running)",
@@ -241,6 +242,75 @@ service = {
 \label{lst:weewx_service}
 \end{listing}
 
+En el caso de los dispositivos que se componen de una estación Campbell conectada por Ethernet a una RaspberryPi, es necesario revisar el estado de conexión al dispositivo, así como asegurar que dicho dispositivo ha generado los registros correspondientes y los ha almacenado en su memoria interna. Para esto, se obtiene la información desde una consulta a una página web que la contiene, generada dinámicamente de los registros internos. Ya que estos registros poseen la información de la fecha de última actualización, se puede tomar este valor y compararlo con el de la fecha y hora actuales del servidor de monitoreo para obtener la diferencia.
+
+Los retos de este servicio de monitoreo radican en la necesidad de parámetros extra de información de la estación meteorológica que no se encuentran dentro de la misma por defecto, entre estos parámetros se encuentran la dirección IP local y el puerto en el que el dispositivo Campbell hace accesibles los datos, así como el nombre de la tabla en la que se encuentran los registros. Por esto, fué necesario extraer estos datos en la instanciación del driver y utilizarlos para instanciar el servicio. La instanciación del servicio en el driver se muestra en el Listado \ref{lst:campbell_driver} y su aplicación en el servicio en el Listado \ref{lst:campbell_service}.
+
+\begin{listing}
+\begin{minted}[%
+   breaklines
+]{python3}
+[...]
+class RpiCampbellStation(BaseDriver):
+  def __init__(self, station, services_map=None):
+    services_map = DEFAULT_SERVICES_MAP
+    extra_data = station.extra_data.serialize()
+    # Get's the IP from the extra_data array of dictionaries
+    for d in extra_data:
+      if d['key'] == 'campbell_ip':
+        campbell_ip = d['value']
+      if d['key'] == 'campbell_port':
+        campbell_port = d['value']
+      if d['key'] == 'campbell_table':
+        campbell_table = d['value']
+
+    [...]
+
+    # Create the services
+    services_map['campbell'] = campbell.Service(
+      campbell_ip, campbell_port, campbell_table
+    ).service()
+    return super().__init__(station, services_map)
+\end{minted}
+\caption{Controlador para estación Cambpbell.}
+\label{lst:campbell_driver}
+\end{listing}
+
+
+\begin{listing}
+\begin{minted}[%
+   breaklines
+]{python3}
+class Service:
+  def __init__(self, ip, port, tableName):
+    [...]
+
+  def service(self):
+    command = 'TARGET_STRING=$('
+    # Get's the page from the campbell station
+    command += 'curl -s "http://{0}:{1}?command=NewestRecord&table={2}" |'.format(self.ip, self.port, self.tableName)
+
+    # From the output of curl, get's the record date
+    command += 'grep "Record Date" | grep -oP "(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})"'
+    command += ');'
+
+    # Gets and compares the datetime against the current time in bash
+    command += 'TARGET=$(date -d "$TARGET_STRING" +%s); CURRENT=$(date +%s); MINUTES=$(( ($TARGET - $CURRENT) / 60 ));'
+
+    command += 'if [ $MINUTES -gt 15 ]; then echo "true"; else echo "false"; fi'
+
+    return  {
+      "command":  command,
+      "stdout": "false",
+      "stderr": None,
+      "actions": {}
+    }
+\end{minted}
+\caption{Ejemplo del servicio para monitoreo de estación Campbell.}
+\label{lst:campbell_service}
+\end{listing}
+
+\clearpage
 
 \subsection{Del API para el acceso a la información}
 
@@ -330,6 +400,8 @@ Una funcionalidad que no se encontraba contemplada al realizar el diseño inicia
 \end{figure}
 
 El sistema de autenticación que utiliza el proyecto está basado en el estándar \textit{HTTPBasic}, que sólo requiere de un usuario y contraseña para realizar operaciones en el sistema, el manejo de las operaciones de autenticación y de cerrado de sesión fueron posibles con un middleware creado gracias a la librería \textit{Axios}, la cual permite definir un preproceso a la información para tomar acciones correspondientes en el ambiente, como puede ser renovar un token de seguridad cuando se detecte que está próximo a expirar, o como lo es en este caso para agregar las cabeceras adecuadas para realizar la autenticación.
+
+% https://jasonwatmore.com/post/2018/09/21/vuejs-basic-http-authentication-tutorial-example#app-vue
 
 Por último, se integró el SDK de OneSignal, para ser integrado, sólo se requirió agregar las dependencias al sistema por medio de el gestor de paquetes npm, y seguir las instrucciones que aparecen al momento del registro. Debido a que el sistema se configuró para utilizar variables de entorno que fueran accesibles mientras se utiliza el sistema, fué posible especificar el \texttt{AppID} sin dejarlo escrito directamente en el código. Además de esto, se utilizaron opciones especiales para que el diálogo de notificaciones que aparece fuera diferente al original. El diálogo resultante es el que se puede observar en la Figura \ref{fig:onesignal-notifications-dialog} y el código relevante en el Listado \ref{lst:onesignal-configuration}.
 
