@@ -33,11 +33,9 @@ Los servicios vitales que las estaciones requieren para proporcionar datos de ca
 \begin{itemize}
    \item El tiempo de la estación.
    \item El servicio de monitoreo climático WeeWX.
-   \item Servicios del cliente de VPN para estaciones que así lo requieran.
+   % \item Servicios del cliente de VPN para estaciones que así lo requieran.
    \item Servicio de copias de respaldo, como la base de datos (si aplica).
 \end{itemize}
-
-% TODO: Cambiar estos a los nuevos servicios monitoreados.
 
 Todos estos procesos y servicios es posible monitorearlos por medio de comandos Bash en la terminal de la estación, por lo tanto, se considera factible monitorearlos de forma adecuada todos para desarrollar este sistema.
 
@@ -53,7 +51,7 @@ Por lo tanto, se decidió crear un servicio que tome un usuario y password con a
 
 \subsection{Selección de herramientas}
 
-Para el desarrollo de el proyecto, se decidió por realizar la aplicación de servidor con el lenguaje de programación Python. Esto debido a que otros proyectos de los que depende el funcionamiento de los sistemas de el LCCA, tales como el monitoreo climatológico y meteorológico con Weewx, y el proyecto para obtener la información de las estaciones meteorológicas en diferentes estándares \cite{jimenez2019management} fueron realizados con este lenguaje. Además, cuenta con una librería estándar extensa así como una librería de terceras partes madura que permite el desarrollo de forma eficaz utilizando estas librerías existentes, contando con la certeza de que están listas para un proyecto con niveles de producción.
+Para el desarrollo de el proyecto, se decidió por realizar la aplicación de servidor con el lenguaje de programación Python. Esto debido a que otros proyectos de los que depende el funcionamiento de los sistemas de el CECATEV, tales como el monitoreo climatológico y meteorológico con Weewx, y el proyecto para obtener la información de las estaciones meteorológicas en diferentes estándares \cite{jimenez2019management} fueron realizados con este lenguaje. Además, cuenta con una librería estándar extensa así como una librería de terceras partes madura que permite el desarrollo de forma eficaz utilizando estas librerías existentes, contando con la certeza de que están listas para un proyecto con niveles de producción.
 
 El \textit{ORM} utilizado para el desarrollo de la aplicación, fué \textit{MasoniteORM}, un ORM para Python que tiene como objetivos principales la simpleza y extendibilidad de proyectos. Si bien, \textit{MasoniteORM} es parte de \textit{Masonite}, un framework para el desarrollo de aplicaciones web, este es bastante extenso y complejo, y si bien es fácilmente extensible no es simple para usarse. Por lo tanto, se decidió utilizar el framework de desarrollo de aplicaciones web \textit{FastApi}, creado por Sebastián Ramírez (tiangolo), ya que ofrece una forma fácil de crear un \textit{API} web, el cuál será utilizado posteriormente para el desarrollo de una interfaz fácilmente accesible para los usuarios.
 

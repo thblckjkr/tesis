@@ -206,8 +206,6 @@ En el caso del servicio WeeWX, el encargado de recolectar la información de las
 
 Entre las fallas comunes de este servicio, podemos encontrar una sobrecarga de la estación ocurrida cuando el servicio hace demasiados intentos de recolección al equipo destino sin enviar los terminadores adecuados. Para solucionar este problema, es necesario conectarse con la herramienta destinada a la conexión con los dispositivos y ejecutar una limpieza de memoria, con el comando \texttt{wee\_device --clear-memory}. Por último, cuando no sea posible ejecutar este comando por una conexión previa no finalizada al sistema, se desconecta forzozamente la conexión serial con las herramientas que Linux proporciona. Este proceso mencionado, se definió en el sistema de monitoreo de la forma que se muestra en el Listado \ref{lst:weewx_service}
 
-%! Mencionar que la conexión es por puerto serial a la estación Meteorológica Davis
-
 \begin{listing}
 \begin{minted}[%
    breaklines
@@ -272,7 +270,7 @@ class RpiCampbellStation(BaseDriver):
     ).service()
     return super().__init__(station, services_map)
 \end{minted}
-\caption{Controlador para estación Cambpbell.}
+\caption{Controlador para estación Campbell.}
 \label{lst:campbell_driver}
 \end{listing}
 
@@ -428,7 +426,7 @@ new Vue({
   },
 }).$mount('#app')
 \end{minted}
-\caption{Serialización de datos con FastAPI y MasoniteORM.}
+\caption{Configuración de OneSignal en VueJS.}
 \label{lst:onesignal-configuration}
 \end{listing}
 
